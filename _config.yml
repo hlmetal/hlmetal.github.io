@@ -15,7 +15,7 @@ company_url:
 github_url: https://github.com/hlmetal # ex. https://github.com/xxxx
 github_username: hlmetal # ex. xxxx
 description: A website that records my work and study experience.
-favicon: favicon.png # Image must be in assets/images
+favicon: favicon.ico # Image must be in assets/images
 repository: hlmetal/hlmetal.github.io # ex. xxxx/xxxx.github.io
 
 # The base hostname & protocol for your site

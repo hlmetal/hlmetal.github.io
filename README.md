@@ -3,7 +3,7 @@
 This is a static website based on github pages & [jekyll](https://jekyllrb.com/). 
 This website is used to record personal work and study experience.
 
-## [Visit Site]()
+## [Visit Site](https://www.hldmetal.com/)
 
 if you have any questions or usggestions, please contact me at the email provided below:
 
