@@ -6,8 +6,8 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Hualan Metal # ex. I m chen
-name: Hualan # ex. HuaLan
+title: This is my blog # ex. I m chen
+name: 华兰DMETAL’s Blog # ex. HuaLan
 email: hualandmetal@gmail.com
 location: Xi'an, China # ex. Xi'an, China
 company: 
@@ -48,7 +48,7 @@ kramdown:
   enable_coderay: true
 
 # Disque
-disque: my_disque_settings # ex. httpdongchuangithubio.disqus.com
+disque: https://www-hldmetal-com.disqus.com # ex. httpdongchuangithubio.disqus.com
 
 # Pagination
 paginate: 10
@@ -83,10 +83,10 @@ side_bar_repo_limit: 5 # Number of repos to show
 analytics :
   provider : google
   google :
-      tracking_id : 'tracking_id'  # ex. UA-72165600-X
+      tracking_id : 'G-KVXT70JEK8'  # ex. UA-72165600-X
 
 
 # For about.html. Fell free to create your own!
 skill_software_keywords: [Java, Python, MySQL]
-skill_j2ee_keywords: [Spring, Maven, Struct, Hibernet, MyBatis]
+skill_j2ee_keywords: [Spring, Maven, MyBatis, Struct, Hibernet]
 skill_web_keywords: [Vue, Element, HTML, JS, Redis, NodeJS, MongoDB]
