@@ -19,7 +19,7 @@ Vue使用了**MVVM**模型，实现数据与视图的双向绑定，通过视图
 #### 组件化
 组件化是Vue中的重要思想，它提供了一种抽象，也即将完整页面拆分成一个个组件，每个组件实现页面的一个功能，组件可以复用，降低了系统耦合性，同时方便组织管理代码，可维护性提高。组件的使用参考[Vue官方文档](https://cn.vuejs.org/guide/essentials/component-basics.html#defining-a-component)
 ##### 组件定义
-```js
+``` js
     //全局组件定义
     //创建
     var comp = Vue.extend({templete:""}) //通过templete设置展示页面的HTML结构
@@ -37,7 +37,7 @@ Vue使用了**MVVM**模型，实现数据与视图的双向绑定，通过视图
 ```
 ##### 父子组件传值
 子组件默认无法访问到父组件中的data和methods,父组件可以将需要传给子组件的数据通过属性绑定的方式传递。
-```js
+``` js
     <parent><child :parentmsg="msg"></child></parent>
     //组件内部定义属性, 子组件中data和props中数据，前者为私有，后者为传递过来值，data数据可读可写，props只可读
     props:['parentmsg'] 
@@ -65,7 +65,7 @@ Vue使用了**MVVM**模型，实现数据与视图的双向绑定，通过视图
 vue-cli是一个基于Webpack的Vue工具链,可快速创建vue工程化项目。安装vue-cli后使用*vue init webpack <projectname>*命令初始化项目，它会自动生产项目代码目录结构等，提高开发效率。Webpack是前端的一个项目构建工具，基于Node.js开发。
 #### axios(http请求处理插件)
 axios是一个基于promise的网络请求库，作用于node.js和浏览器中，在服务端它使用原生node.js http模块, 在浏览器则使用XMLHttpRequest。aixos可用于创建get、post、put等请求，处理并发请求。可以添加拦截器以拦截请求并处理相应逻辑。axios API使用参考[AXIOS官方文档](https://axios-http.com/docs/api_intro)
-```js
+``` js
 this.$http.get(url,[options]).then(successCallback,errorCallback)
 //手动发起的post请求默认没有表单格式，有些服务器不能处理
 //通过post方法的第三个数据设置 emulateJSON: true 可以解决
@@ -74,7 +74,7 @@ this.$http.post(url,[body],[options]).then(successCallback,errorCallback); //bod
 ```
 #### vue-router(vue路由)
 Vue的路由管理器，和Vue.js的核心深度集成，非常方便的用于SPA应用程序的开发。所谓路由即根据不同的用户事件，显示不同的页面内容，建立起url和页面之间的映射关系。vue的单页面应用是基于路由和组件的，**路由用于设定访问路径，并将路径和组件映射起来**。传统的页面应用，是用一些超链接来实现页面切换和跳转的，而在vue-router单页面应用中，则是路径之间的切换，也即组件的切换。**主要通过url中的hash(#号)来实现不同页面之间的切换**。vue-router使用参考[Vue-router官方文档](https://router.vuejs.org/zh/guide/)
-```js
+``` js
     //路由定义方式
     routers: [
         {path:"/login",component:login},  // path是路由地址，component是组件模板对象
@@ -98,9 +98,8 @@ Vue的状态管理模式，用于管理共享数据，也即把组件共享状�
 
 ## Vue常用属性
 1. el 指示vue编译器从什么地方开始解析vue的语法。表示一个vue对象需要挂载到哪一个html对象上面，值为那个html对象的id
-    ```js
+    ``` html
     <div id="app">
-        // contents
     </div>
     <script>
         const app = new Vue({
@@ -109,53 +108,60 @@ Vue的状态管理模式，用于管理共享数据，也即把组件共享状�
 
             }
         })
+    ```
 2. data 存储数据，从服务器请求或者固定
-    ```js
+    ``` js
     data: {
         msg: "Hello World",
         firstName: J,
         lastName: M
     }
+    ```
 3. template 用于设置模板，替换页面元素
-    ```js
+    ``` js
     <template>
         <div id="tab">
             <slot></slot>
         </div>
     </template>
+    ```
 4. methods 方法，即用于书写业务逻辑
-    ```js
+    ``` js
     methods: {
         getFullName: function() {
             console.log('getFullName');
             return this.firstName + ' ' + this.lastName
         }
     }
+    ```
 5. computed 计算属性，根据所依赖的数据动态显示新的计算结果，有缓存。
-    ```js
+    ``` js
     computed: {
         fullName: function() {
             console.log('getFullName');
             return this.firstName + ' ' + this.lastName
         }
     }
+    ```
 6. watch 监听属性，监听data数据变化后触发对应函数,用于数据变化时执行异步或开销较大的操作
-    ```js
+    ``` js
     watch: {
         watchValue: function(newValue, oldValue) {
             // logic
         }
     }
-
+    ```
 ## Vue常用指令
 1. v-text 更新元素的文本内容 
-    ```js
+    ``` html
     <span v-text="msg"></span>
+    ```
 2. v-html 输出为HTML格式
-    ```js
+    ``` html
     <div v-html="html"></div>
+    ```
 3. v-cloak 解决插值表达式闪烁问题，与css搭配使用
-    ```js
+    ``` html
     //css
     [v-cloak] {
         display: none;
@@ -164,11 +170,13 @@ Vue的状态管理模式，用于管理共享数据，也即把组件共享状�
     <div v-cloak>
         {{msg}}
     </div>
+    ```
 4. v-bind 绑定属性指令
-    ```js
+    ``` js
      <div v-bind:title='mytitle'></div>
+    ```
 5. v-on 绑定事件指令, 可添加相应修饰符以达到不同效果
-    ```js
+    ``` js
     <div v-on:click="post"></div>
     //...
     methods: { 
@@ -179,26 +187,29 @@ Vue的状态管理模式，用于管理共享数据，也即把组件共享状�
     // 修饰符
     //once 表示只触发一次
     <div v-on:click.once="post"></div>
+    ```
 6. v-model 双向数据绑定，只用于表单元素
-    ```js
+    ``` js
     <input v-model="name" placeholder="input name">
     <p>name is: {{ name }}</p>
+    ```
 7. v-for 遍历数组，数字，对象等
-    ```js
+    ``` html
     <div v-for="(item, index) in items"></div>
     <div v-for="item in items" :key="item.id">
         {{ item.text }}
     </div>
+    ```
 8. v-if/v-show 有条件地渲染元素，前者每次都会重新创建或删除元素，后者只会切换元素的display样式
-    ```js
+    ``` js
     //v-if 条件为真时才渲染元素
     <h1 v-if="ok">Vue is ok!</h1>
     //v-show总是会渲染元素
      <h1 v-if="ok">Vue is ok!</h1>
-
+    ```
 ## Vue常用API
 1. filter 可被用作一些常见的文本格式化,只用于mustache插值表达式和v-bind表达式中，由管道符指示。
-    ```js
+    ``` js
     //全局过滤器
     Vue.filter(filtername, function(data,parten) {
         //logic
@@ -208,8 +219,9 @@ Vue的状态管理模式，用于管理共享数据，也即把组件共享状�
         filtername, function(data,parten) {
             //logic
     }}
+    ```
 2. directive 自定义指令
-    ```js
+    ``` js
     //全局自定义指令
     Vue.directive("focus", {
         //bind 是指只执行一次
@@ -226,4 +238,5 @@ Vue的状态管理模式，用于管理共享数据，也即把组件共享状�
         }
         //...
     })
+    ```
 3. *TO BE CONTIUED*

@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "MySQL基本知识与实践"
-date:   2018-9-13 21:58:30 +0200
+title:  "MySQL实践 Part 1"
+date:   2018-09-11 21:58:30 +0200
 categories: mysql
 ---
 
@@ -11,7 +11,7 @@ MySQL是一种DBMS，即数据库管理软件(而不是数据库本身)。MySQL�
 ## MySQL使用
 ### 安装[MySQL](https://dev.mysql.com/downloads/mysql/)
 ### 配置MySQL-根目录下新建my.ini文件并编辑以下信息
-    ```js
+    ``` SQL
     [mysql]
     //默认字符集
     default-character-set=utf8
@@ -30,7 +30,7 @@ MySQL是一种DBMS，即数据库管理软件(而不是数据库本身)。MySQL�
     default-storage-engine=INNODB
     ```
 ### 初始化
-    ```js
+    ``` SQL
     //初始化
     mysqld --initialize --console
     //安装服务
@@ -44,7 +44,7 @@ MySQL是一种DBMS，即数据库管理软件(而不是数据库本身)。MySQL�
     ALTER USER USER() IDENTIFIED BY 'newPaw';
     ```
 ### 基本命令
-    ```js
+    ``` SQL
     //返回可用数据库列表(包括MySQL内部数据库)
     SHOW DATABASES;
     //使用数据库
@@ -60,7 +60,7 @@ MySQL是一种DBMS，即数据库管理软件(而不是数据库本身)。MySQL�
 
 ## 检索数据
 ### 简单SELECT语句
-    ```js
+    ``` SQL
     //返回表中所有数据
     SELECT * FROM 'tablename';
     //返回特定字段的所有数据
@@ -69,14 +69,14 @@ MySQL是一种DBMS，即数据库管理软件(而不是数据库本身)。MySQL�
     SELECT DISTINCT 'name', 'address' FROM 'tablename'; //DISTINCT关键字应用于所选择的全部列
     ```
 ### LIMIT关键字(限定行数)
-    ```js
+    ``` SQL
     //返回前n行
     SELECT * FROM 'tablename' LIMIT 3;
     //返回从第n行开始的n行
     SELECT * FROM 'tablename' LIMIT 3,3;
     ```
 ### ORDER BY子句(排序)
-    ```js
+    ``` SQL
     //返回排序的数据
     SELECT * FROM 'tablename' ORDER BY 'id';  //默认升序 ASC
     //返回多列排序的数据
@@ -88,7 +88,7 @@ MySQL是一种DBMS，即数据库管理软件(而不是数据库本身)。MySQL�
      SELECT * FROM 'tablename' ORDER BY 'id' DESC LIMIT 1;
     ```
 ### WHERE子句(过滤)
-    ```js
+    ``` SQL
     //返回id=1的数据
      SELECT * FROM 'tablename' WHERE 'id' = 1; //操作符包括 =, <, >, <=, >=,  <>, !=, BETWEEN
     //返回范围数据
@@ -103,7 +103,7 @@ MySQL是一种DBMS，即数据库管理软件(而不是数据库本身)。MySQL�
     SELECT * FROM 'tablename' WHERE 'id' NOT IN (1,2,3);
     ```
 #### LIKE操作符与通配符
-    ```js 
+    ``` SQL 
     //LIKE指示MySQL WHERE子句后跟的搜索模式利用通配符匹配而不是直接相等匹配
     // % 表示任何字符出现任意次数, %可以在任意位置使用
     SELECT * FROM 'tablename' WHERE 'user_name' LIKE '%jack'; ('%jack%'|'jack%')
@@ -114,7 +114,7 @@ MySQL是一种DBMS，即数据库管理软件(而不是数据库本身)。MySQL�
 * 除非必要否则不要将通配符置于搜索条件开始处
 #### 正则表达式
 * LIKE和REGEXP区别: LIKE是匹配整个列值，REGEXP则是在列值内进行匹配，例如： *LIKE '1000'是匹配列值为1000的行, 而REGEXP '1000则是匹配列值内包含1000的行， c1000也可以匹配上'*
-    ```js
+    ``` SQL
     //用 | 进行OR 匹配
     SELECT * FROM 'tablename' WHERE 'user_name' REGEXP 'jack|nico';
     //用 [] 进行特定字符集匹配
@@ -151,7 +151,7 @@ MySQL是一种DBMS，即数据库管理软件(而不是数据库本身)。MySQL�
     + {n,}          不少于指定数目的匹配
     + {n,m}         匹配数目的范围， mmm<=255
 
-    ```js
+    ``` SQL
     //匹配连续4个数字
     SELECT * FROM 'tablename' WHERE 'user_name' REGEXP '[[:digit:]]{4}';
     //匹配jack 或jacks

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "git常用命令"
+title:  "Git常用命令"
 date:   2019-07-15 11:07:35 +0200
 categories: git
 ---
