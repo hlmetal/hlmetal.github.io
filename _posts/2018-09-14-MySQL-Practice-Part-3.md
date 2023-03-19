@@ -5,6 +5,8 @@ date:   2018-09-14 09:00:30 +0200
 categories: mysql
 ---
 
+MySQL 数据库基础学习之三，包括表操作、视图、存储过程、游标、触发器、事务处理等。
+
 ## 创建和操作表
 ### 创建表
 * 创建表时各字段必须给出数据类型
@@ -13,6 +15,7 @@ categories: mysql
 * AUTO_INCREMENT自增量，每个表只允许一个自增列，且必须被索引， 自增值可以MySQL默认，也可以设定特殊值，后续增量将从此特殊值开始。
 * 创建表时各字段可以指定默认值, 只支持常量
 * 创建表时可根据需要选择使用引擎
+
 ```
     CREATE TABLE users(
         user_id bigint  NOT NULL AUTO_INCREMENT,
@@ -20,7 +23,6 @@ categories: mysql
         address varchar(50),
         PRIMARY KEY(user_id)
         )ENGINE=InnoDB;
-
 ```
 ### 更新表
 在创建表时需要仔细设计表，以免插入数据后再对表做较大改动。、
@@ -37,10 +39,12 @@ categories: mysql
     FOREIGN KEY(user_id)
     REFERENCES orders(user_id);
 ```
+
 ### 删除表
 ```
     DELETE TABLE users;
 ```
+
 ### 修改表名
 ```
     RENAME TABLE users TO users2;

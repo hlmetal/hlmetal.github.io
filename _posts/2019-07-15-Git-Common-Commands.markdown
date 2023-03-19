@@ -5,6 +5,8 @@ date:   2019-07-15 11:07:35 +0200
 categories: git
 ---
 
+Quick note about git commands. 
+
 ## 远程仓库相关
 
 * git remote 查看远程仓库名称
@@ -39,6 +41,7 @@ categories: git
 * git checkout --<filename> 撤销修改
 * git rm -f 强制删除；git rm --cached 从git仓库中删除但保留在工作目录中
 * git mv file_from file_to 移动文件
+* git reset --soft 'commitid' 撤销对远程仓库的push或commit
 
 ## 日志状态相关
 
