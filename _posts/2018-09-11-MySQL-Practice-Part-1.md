@@ -2,7 +2,7 @@
 layout: post
 title:  "MySQL实践 Part 1"
 date:   2018-09-11 21:58:30 +0200
-categories: mysql
+categories: database mysql
 ---
 
 MySQL 数据库基础学习之一，包括数据库配置、数据检索基础(SELECT语句、WHERE语句、通配符等)

@@ -2,7 +2,7 @@
 layout: post
 title:  "MySQL实践 Part 2"
 date:   2018-09-13 21:58:30 +0200
-categories: mysql
+categories: database mysql
 ---
 
 MySQL 数据库基础学习之二，包括检索进阶(数据处理函数、子查询、联结表等), 插入、删除、更新。
