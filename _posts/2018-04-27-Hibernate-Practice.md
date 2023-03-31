@@ -11,6 +11,7 @@ categories: database jdbc
 ## 使用Hibernate
 Hibernate Session可以实现CRUD功能
 1. 导入Hibernate
+
 ```
 <dependency>
     <groupId>org.hibernate</groupId>
@@ -28,7 +29,9 @@ Hibernate Session可以实现CRUD功能
     <version>4.12</version>
 </dependency>
 ```
+
 2. 配置主配置文件 hibernate.cfg.xml
+
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC
@@ -61,9 +64,11 @@ Hibernate Session可以实现CRUD功能
     </session-factory>
 </hibernate-configuration>
 ```
+
 3. 声明实体类
 无参构造，有参构造，getter/setter，hascode/equals
 4. 配置子配置文件(映射文件) hbm/User.hbm.xml
+
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 	<!DOCTYPE hibernate-mapping PUBLIC 
@@ -83,6 +88,7 @@ Hibernate Session可以实现CRUD功能
     </class>
 </hibernate-mapping>
 ```
+
 5. 利用Hibernate操作数据库
 ## HQL
 Hibernate为了消除SQL提供了替代的查询语言 HQL.
@@ -112,6 +118,7 @@ HQL的语法与SQL非常类似:
 
 4. 整合具体步骤:
 * 创建项目导入包:
+
 ```
 <dependency>
     <groupId>org.apache.struts</groupId>
@@ -162,7 +169,9 @@ HQL的语法与SQL非常类似:
     <version>4.1.6.RELEASE</version>
 </dependency>
 ```
+
 * 配置web.xml
+
 ```
   <filter>
     <display-name>StrutsPrepareAndExecuteFilter</display-name>
@@ -181,7 +190,9 @@ HQL的语法与SQL非常类似:
       <param-value>classpath:conf/spring-*.xml</param-value>  
   </context-param> 
 ```
+
 * 添加struts配置文件: struts.xml
+
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 从 struts-2.5.dtd 文件中复制 DOCTYPE -->
@@ -191,7 +202,9 @@ HQL的语法与SQL非常类似:
 <struts>
 </struts>
 ```
+
 * 添加spring-struts配置文件: conf/spring-struts.xml
+
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- /** 配置文件描述: spring-mvc配置 */ -->
@@ -224,7 +237,9 @@ HQL的语法与SQL非常类似:
     <context:component-scan base-package="cn.tedu.ssh.action"/>
 </beans> 
 ```
+
 * 添加数据库连接参数文件 conf/conf.properties
+
 ```
 # conf.properties
 driver=com.mysql.jdbc.Drvier
@@ -237,7 +252,9 @@ minIdle=0
 maxWait=60000
 timeBetweenLogStatsMillis=60000
 ```
+
 * 利用Spring配置文件, 配置Hibernate: conf/spring-hibernate.xml
+
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- /** 配置文件描述: spring-mvc配置 */ -->
@@ -312,6 +329,7 @@ init-method="init" destroy-method="close">
     </bean>
 </beans> 
 ```
+
 * 部署测试
 
 ## 整合Spring-Hibernate续
@@ -319,17 +337,20 @@ Spring 提供了 HibernateTemplate类 用于封装Session接口, 在Session接�
 
 *案例*
 1. 在spring-hibernate.xml 中配置HibernateTemplate
+
 ```
 <bean id="hibernateTemplate" 
         class="org.springframework.orm.hibernate4.HibernateTemplate">
     <property name="sessionFactory" ref="sessionFactory"/>
 </bean>
 ```
+
 2. 添加实体类 User
 3. 添加映射文件 hbm/User.hbm.xml
 4. 测试
 *使用HibernateTemplate实现UserDao*
 1.配置hibernate.xml
+
 ```
 <!-- 配置Hibernate事务管理器 -->
 <bean id="txMgr" 
@@ -341,6 +362,7 @@ Spring 提供了 HibernateTemplate类 用于封装Session接口, 在Session接�
 <tx:annotation-driven transaction-manager="txMgr"/>
 <context:component-scan base-package="com.dmetal.ssh.dao"/>
 ```
+
 2. 编写userDAO的接口
 3. 实现UserDAO的接口
 4. 测试
@@ -348,20 +370,20 @@ Spring 提供了 HibernateTemplate类 用于封装Session接口, 在Session接�
 ## 持久对象生存周期管理
 Hibernate 为了自动化的处理ORM, 设计了对象持久状态管理。
 1. 临时状态: 刚刚创建的新实体对象, 还没有保存到数据库时候, 这是对象是临时状态. 
-    - 从Hibernate中删除的对象也是临时状态.
+    - 从Hibernate中删除的对象也是临时状态.
 2. 持久状态: 已经保存到数据库的对象, 并且缓存到了session中, 持久状态对象有个非常重要的特点, 在更改属性时候会自动的更新的到数据库中.
-    - session.get, session.save, session.update 以后的对象是持久状态的.
-    - Hibernate4 需要利用 session.flush 手动执行更新功能
+    - session.get, session.save, session.update 以后的对象是持久状态的.
+    - Hibernate4 需要利用 session.flush 手动执行更新功能
 3. 游离状态: 是指持久状态的对象, 被从session缓存中清除, 这时候更新对象的属性不再影响数据库, 可以利用 session.update方法使对象返回到持久状态.
-    - session.evict() session.clear() 可将对象从session清除, 使对象变成游离状态.
+    - session.evict() session.clear() 可将对象从session清除, 使对象变成游离状态.
 <img src= "/assets/files/hbm.png" alt="加载错误" title="hibernate生命周期" />
 
 ## ValueStack
 Struts2 用于共享数据的存储结构. 在整个Struts请求期间共享数据.包含两个区域:
 1. 内容区域: 主要共享数据的区域, 控制器Bean就保存在这个区域.
-    - 在JSP中, 使用 Struts 标签+OGNL表达式可以读取
-    - Struts2 接管了JSTL和EL的底层, JSTL/EL就可以访问这个区域
-2. 上下文环境区域: 用于访问 request, session 和 application 范围
-    - 使用 Struts 标签+OGNL表达式可以读取, 读取时候需要#
-    - #request.message  #session.message  #application.message
-    - 接管了JSTL和EL的底层, ${requestScope.message}
+    - 在JSP中, 使用 Struts 标签+OGNL表达式可以读取
+    - Struts2 接管了JSTL和EL的底层, JSTL/EL就可以访问这个区域
+2. 上下文环境区域: 用于访问request,session和application范围
+    - 使用 Struts 标签+OGNL表达式可以读取, 读取时候需要#
+    - #request.message  #session.message  #application.message
+    - 接管了JSTL和EL的底层, ${requestScope.message}

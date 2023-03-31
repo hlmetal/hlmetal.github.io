@@ -34,6 +34,7 @@ return xhr;
 4. responseText：获得服务器返回的文本数据
 5. responseXML：获得服务器返回的xml数据
 6. status：获得服务器返回的状态码
+
 ### 编程步骤
 1. 获得ajax对象: `var xhr=getAjax();`
 2. 利用ajax对象发送请求
@@ -60,9 +61,11 @@ return xhr;
     //更新页面.....
     }
 ```
+
 ### 缓存问题
 1. ie浏览器提供的ajax对象在发送get请求时，会比较请求地址是否访问过，如果访问过，则不再发送新的请求，而是显示第一次返回的结果。
     * 解决方案：①发送post请求；②在请求地址后添加一个随机数
+
 ### 编码问题
 1. 发送get请求时
 * 产生乱码原因：ie浏览器会使用gbk编码，其他浏览器会使用utf-8编码，服务器端默认会使用iso-8859-1解码
@@ -70,13 +73,16 @@ return xhr;
 2. 发送post请求时
 * 产生乱码原因：浏览器会使用utf-8来编码，而服务器端会使用iso-8859-1来解码
 * 解决方案：`request.setCharacterEncoding("utf-8");`
+
 ### JSON(JavaScript object notation)
 JSON是一种轻量级的数据交换格式
 * 数据交换：将要交换的数据先转换成一种与平台无关的数据格式(如xml)，然后发送给接收方来处理；
 * 轻量级：JSON相对于xml，文档更小，解析速度更快
+
 #### 语法
 1. 表示一个对象：{属性名：属性值，属性名：属性值....}  {“name”:"dmetal","age":21}
 2. 表示对象组成的数组[{},{},{},{}...]
+
 #### 应用场景
 1. java对象转换成json字符串：可以使用jackson api （ObjectMapper）
 2. json字符串转换成JavaScript对象：可以使用JavaScript内置对象JSON提供的parse方法

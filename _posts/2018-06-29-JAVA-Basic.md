@@ -18,6 +18,7 @@ Java是一种面向对象的编程语言，Java还是一个平台, 包括Java软
     * JAVA_HOME：指向JDK安装目录
     * CLASSPATH：表示类的搜索路径
     * PATH：指向JDK下的bin目录
+
 ## java开发
 1. 注释：1）单行注释：//；2）多行注释：/* *；3）文档注释：/** */；
 2. println：输出换行；print：输出不换行
@@ -34,7 +35,7 @@ Java是一种面向对象的编程语言，Java还是一个平台, 包括Java软
 6. 运算符
     * 算术运算符：\+，\- \*，/，%，++，--；++单独使用时不分前后（a++，++a），被使用时，a++为a，++a为a+1
     * 关系运算：>,<,>=,<=,==,!=;关系运算的结果为boolean型，关系成立则true，不成立则false
-    * 逻辑运算符：&&，||，！；
+    * 逻辑运算符：&&，\|\|，！
     * 短路与：第一个值为false时,发生短路（后边不执行），短路或：第一个值为true时，发生短路
     * 三目/条件运算符：boolean？数1：数2；计算boolean的值为true则结果为数1，否则为数2；
 7. 分支结构:有条件的执行某语句1次，并非每句必走
@@ -240,6 +241,7 @@ i* mport：同一包中类可直接访问；不同包不能直接访问；有两
     * 多态的表现形式：
     * 重写：根据对象来实现多态；
     * 重载：根据参数来实现多态；
+
 ## JAVA Stream
 ### 什么是Stream
 Stream是对集合(Collection)对象功能的增强，它专注于对集合对象进行各种非常便利、高效的聚合操作(aggregate operation),或者大批量数据操作(bulk data operation)。Stream API借助于同样新出现的Lambda表达式，极大的提高编程效率和程序可读性。同时它提供串行和并行两种模式进行汇聚操作，并发模式能够充分利用多核处理器的优势，使用 fork/join 并行方式来拆分任务和加速处理过程。通常编写并行代码很难而且容易出错, 但使用 Stream API无需编写一行多线程的代码，就可以很方便地写出高性能的并发程序。
@@ -275,6 +277,7 @@ String字符串是不可变对象,创建后内容不可改变，改变内容会�
 8. static String valueOf(...);将java其他类型转换为字符串,常用于将基本类型转换为字符串
 9. split(regex);将字符串按匹配到的位置切开,切除匹配到的字符,将切开的结果保存到字符串数组
 10. replaceAll(String regex,String replacement)将字符串中匹配到的正则规则regex的字符替换成replacement
+
 #### StringBuilder
 StringBuilder是为了解决频繁修改字符串对系统资源开销问题。
 1. StringBuilder内部是个可变的字符数组, 可以通过扩容实现长度变换,而不是每次都创建新对象。
@@ -284,6 +287,7 @@ StringBuilder是为了解决频繁修改字符串对系统资源开销问题。
     * delete()删除指定范围内的内容
     * insert()在当前字符串指定位置插入
     * reverse()反转字符串
+
 #### 正则表达式
 1. 预定义字符集
     * . 任意字符
@@ -301,11 +305,13 @@ StringBuilder是为了解决频繁修改字符串对系统资源开销问题。
     * X{n,}表示n到任意多个X(大于等于n个X)
     * X{n,m}表示n到m个X
 3. 边界检查
-    * "^"和"$"：相当于matches（）方法; ^代表字符串开始,$代表字符串结束	
+    * "^"和"$"：相当于matches（）方法; ^代表字符串开始,$代表字符串结束\
+	
 ### Object类
 任何类都继承于Object，是Object的子类，可以定义变量，引用任何类型（子类型）的对象。Object中定义了全体类共同的方法，子类会自动继承这些方法。
 1. toString（）方法就是定义在Object类上定义的方法，是留给全部子类的方法
 2. equals（）方法
+
 ### Calendar API
 1. int get(int field) 获取指定时间分量
 2. void set(int field,int value)对指定时间分量设置指定的值
@@ -327,9 +333,11 @@ StringBuilder是为了解决频繁修改字符串对系统资源开销问题。
 7. 自然排序：Collection.sort(list)
     * list集合中的元素必须实现Comparable接口，必须实现compareTo方法
     * 一般用于Java对提供的API对象进行排序 String,Date,Integer,Double等
+
 #### 队列（Queue）和栈
 1. 队列：先进先出原则，首尾增删, 例如：排队（如游戏的排队系统）
 2. 栈：先进后出原则, 例如：前进后退按钮
+
 ### File API
 1. createNewFile(); 创建文件
 2. boolean exists(); 判断当前file表示的文件或目录是否存在
@@ -342,12 +350,14 @@ StringBuilder是为了解决频繁修改字符串对系统资源开销问题。
     * void write(int d)
     * void write(byte[] d)
 * 文件流、缓存流、对象流、字符流、转换流、缓冲字符输入输出流
+
 ### Exception API
 1. Throwable类派生的Error和Exception子类
     * try-catch-finally
     * throws: 不要在main方法上写throws
 2. 非检查异常：RuntimeException类：NullPointException，ArrayIndexOutBoundsException等
 3. printStackTrace()输出错误堆栈信息; getMessage()获取错误消息; getCause()获取异常出现的原因
+
 ### Thread API
 #### 线程状态
 <img src= "/assets/files/thread_status.png" alt="加载错误" title="线程状态"/>
@@ -362,6 +372,7 @@ StringBuilder是为了解决频繁修改字符串对系统资源开销问题。
     * boolean isAlive;测试线程是否处于活动状态
     * boolean isDaemon();测试线程是否为守护线程
     * boolean isInterrupted();测试线程是否已经中断
+
 #### 多线程并发安全问题
 1. 当多个线程并发访问同一资源时,由于线程切换不确定,导致的代码执行顺序混乱从而出现很多问题,严重时可能导致系统瘫痪
 2. 同步块synchronized(t){}
@@ -369,9 +380,11 @@ StringBuilder是为了解决频繁修改字符串对系统资源开销问题。
     * 静态方法上使用其修饰后，该方法一定具有同步效果;
 3. 互斥锁
 使用synchronized修饰的是多端代码,但是这些同步块的同步监视器对象是同一个的时候，这些代码间就具有了互斥效果,同一时间多个线程不能同时在这些方法内部执行;
+
 #### 线程安全API
 1. StringBuilder不是线程安全的，而**StringBuffer是线程安全的**，所以在多线程下操作同一个字符串内容时应当使用StringBuffer,因为该类中的操作字符串相关方法都是同步方法(使用Synchronized修饰)
 2. List集合常用的实现类：ArrayList，LinkedList; Set集合的实现类：HashSet; Map集合的实现类：HashMap**都不是线程安全的**，但是可以通过集合的工具类Collections的相关方法转换为一个线程安全的
+
 #### 线程池
 使用ExecutorService实现线程池: 控制线程数量，重用线程
 * Executors.newCachedThreadPool()创建一个可根据需要创建新线程的线程池，但是在以前构造的线程可用时将重用它们

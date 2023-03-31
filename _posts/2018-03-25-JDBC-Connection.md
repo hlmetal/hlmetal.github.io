@@ -12,6 +12,7 @@ JDBC——Java数据库连接。JDBC是一种标准Java应用编程接口(JAVA A
 2. Connection    连接接口
 3. Statement     语句对象接口
 4. ResultSet     结果集接口
+
 ## 连接步骤
 1. 加载类库（驱动jar包）到JVM
 ```
@@ -36,17 +37,21 @@ state.execute(sql);
 state.close();
 connection.close();
 ```
+
 ## DriverManager 类
 DriverManager类下面提供的全是静态方法, 只需要用类名点方法就可以调用,不需要实例化.
 1. 注册驱动： registerDriver();
 2. 获取链接： getConnection(url, username, password);
+
 ## Connection 类
 connection类主要有两个作用：**1.可以获取执行sql的对象，2.管理事务的功能**。数据库里面的数据一旦改变就是永久的，所以需要一个管理事务功能验证sql语句的正确性。在mysql中事务管理通过begin开启事务，rollback回滚事务，commit提交事务。在jdbc里面通过connection类的特定方法也可以实现这三个功能。
+
 ## Statement 类
 * Statement用来执行SQL语句，但只适合执行静态sql语句。 即SQL语句中不含有拼接动态数据的地方。因为拼接SQL语句会导致SQL语句的复杂度提高，并且可能出现SQL注入攻击。
 * PreparedStatement是Statement的子类，专门用来解决上述问题，PreparedStatement适合执行含有动态信息的SQL语句其执行的是预编译SQL语句。
 1. int executeUpdate(String sql)专门用来执行DML语句的方法，返回值是一个整数用来表示执行了DML语句后影响了表中多少条数据
 2. ResultSet executeQuery(String sql)专门用来指定DQL语句的方法，返回值为查询结果集
 3. booleam execute(String sql) 什么SQL语句都可以指定行，但由于DML,DQL有专门方法，所以一般用来执行DDL语句，返回值为true时说明执行后有返回值。
+
 ## ResultSet 类
 对DQL查询语句进行封装，返回一个resultset对象，并且可以通过特定方法获取查询结果。并用特定方法获取查询结果内容。

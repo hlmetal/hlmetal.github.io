@@ -40,6 +40,7 @@ MySQL 数据库基础学习之二，包括检索进阶(数据处理函数、子�
 ```
     SELECT SUBSTRING('en',1) FROM test_01 where id = 6;
 ```
+
 #### 日期时间处理函数
 1. YEAR(), MONTH(), DAY(), DAYOFWEEK(), HOUR(), MINUTE(), SECOND()
 ```
@@ -65,6 +66,7 @@ MySQL 数据库基础学习之二，包括检索进阶(数据处理函数、子�
 ```
     SELECT CURDATE();
 ```
+
 #### 数值处理函数
 1. ABS() 返回绝对值
 2. SIN(), COS(), TAN() 返回角度正弦、余弦、正切
@@ -105,15 +107,18 @@ MySQL 数据库基础学习之二，包括检索进阶(数据处理函数、子�
 * GROUP BY子句中的列必须在SELECT语句中给出
 * GROUP BY子句会将NULL分为一组
 * GROUP BY子句中的列不能是聚集函数, 必须是检索列或有效表达式
+
 #### WITH ROLLUP 得到分组汇总值
 ```  
     SELECT user_name, count(*) FROM test_01 GROUP BY user_name WITH ROLLUP;
 ```
+
 #### HAVING子句 过滤分组
  * HAVING 与 WHERE 可替换使用，但唯一差别是前者过滤分组，后者过滤行
 ```
     SELECT user_name, count(*) FROM test_01 GROUP BY user_name HAVING count(*) > 2;
 ```
+
 #### 分组并排序
 ```
     SELECT user_name, count(*) FROM test_01 GROUP BY user_name ORDER BY user_name;
@@ -189,6 +194,7 @@ MySQL 数据库基础学习之二，包括检索进阶(数据处理函数、子�
     SELECT user_id, user_name, address
     WHERE address in("Shanghai", "Shenzhen");
 ```
+
 #### UNION注意事项
 * UNION中的SELECT语句必须具有相同的列、表达式、聚集函数, 并且列值类型必须兼容
 * UNION会自动排除SELECT语句中的重复行,若要全部返回则使用UNION ALL
@@ -200,6 +206,7 @@ MySQL 数据库基础学习之二，包括检索进阶(数据处理函数、子�
 * 性能-通配符和正则往往是匹配所有行,但这些搜索很少使用索引, 随着行数增加, 搜索时间也会变长
 * 明确控制-通配符和正则很难明确控制匹配什么而不匹配什么
 * 智能化的结果通配符和正则虽然灵活，但不能提供智能化的选择结果的方法
+
 ### 使用全文本搜索
 在创建表时使用FULLTEXT关键字给指定列添加全文本搜索, 也可以在之后修改表时指定。在定义之后，MySQL会自动维护该索引
 ```
@@ -208,12 +215,14 @@ MySQL 数据库基础学习之二，包括检索进阶(数据处理函数、子�
     WHERE MATCH(pro_desc) AGAINST('detail'); //MATCH指定搜索列, AGAINST指定搜索表达式
 ```
 MATCH()可指定多列，必须与FULLTEXT中定义的相同
+
 ### 注意事项
 * 全文本搜索返回的数据顺序是根据其计算出的等级制降序排列，等级制为0的表示不符合条件不会返回。
 * 全文本搜索默认自动忽略长度在3及以下的词
 * MySQL默认的非用词会自动忽略
 * 50%规则，如果一个词出现在50%以上的行中，则会作为非用词被忽略
 * 若表中行数少于3行，不会返回结果
+
 ### 查询扩展(WITH QUERY EXPANSION)
 即放宽搜索结果，MySQL首先进行全文本搜索与搜索条件匹配的行，然后再从这些匹配行中选择有用词再次进行全文本搜索与搜索条件和有用词匹配的行。因此返回结果被放宽，所有相关结果都会返回。
 ```
@@ -221,6 +230,7 @@ MATCH()可指定多列，必须与FULLTEXT中定义的相同
     FROM product
     WHERE MATCH(pro_desc) AGAINST('detail' WITH QUERY EXPANSION);
 ```
+
 ### 布尔搜索(IN BOOLEAN MODE)
 布尔搜索可以指定要匹配的词，要排斥的词，排列，表达式分组等。布尔搜索即使在没有启用FULLTEXT时也可以使用。
 #### 布尔操作符

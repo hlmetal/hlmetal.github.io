@@ -23,6 +23,7 @@ MySQL 数据库基础学习之三，包括表操作、视图、存储过程、�
         PRIMARY KEY(user_id)
         )ENGINE=InnoDB;
 ```
+
 ### 更新表
 在创建表时需要仔细设计表，以免插入数据后再对表做较大改动。
 ```
@@ -38,10 +39,12 @@ MySQL 数据库基础学习之三，包括表操作、视图、存储过程、�
     FOREIGN KEY(user_id)
     REFERENCES orders(user_id);
 ```
+
 ### 删除表
 ```
    DELETE TABLE users;
 ```
+
 ### 修改表名
 ```
     RENAME TABLE users TO users2;
@@ -56,12 +59,14 @@ MySQL 数据库基础学习之三，包括表操作、视图、存储过程、�
 * 使用表的组成部分而不是整个表
 * 保护数据，授权给用户部分表数据的访问权限而不是全部
 * 更改数据格式和表示，视图可以返回与实体表的表示和格式不同的数据
+
 ### 使用规则
 * 视图名必须唯一
 * 视图可以嵌套
 * 视图不能索引，也没有关联的触发器或默认值
 * 视图可以和表一起用
 * 视图可以使用ORDER BY
+
 ### 创建视图
 ```
     // 创建一个查询用户及其购买的产品的视图
@@ -80,6 +85,7 @@ MySQL 数据库基础学习之三，包括表操作、视图、存储过程、�
 
     SELECT * FROM user_address;
 ```
+
 ### 更新视图
 视图可以更新，但视图一般都应用与检索数据，而不用于更新(INSERT、UPDATE、DELETE)。
 
@@ -90,6 +96,7 @@ MySQL 数据库基础学习之三，包括表操作、视图、存储过程、�
 * 简单-将处理步骤进行封装，简化复杂操作
 * 安全-使用同一存储过程，不必反复建立一系列处理步骤，防止错误，保证了数据完整性
 * 高性能-使用存储过程比使用单独SQL要快
+
 ### 创建并使用存储过程
 ```
     //创建一个简单存储过程
@@ -101,6 +108,7 @@ MySQL 数据库基础学习之三，包括表操作、视图、存储过程、�
     //使用存储过程
     CALL avgprice;
 ```
+
 ### 创建含参数的存储过程
 ```
     //OUT 表示的参数是从存储过程中传出的值, DECIMAL表示参数数据类型为十进制
@@ -121,6 +129,7 @@ MySQL 数据库基础学习之三，包括表操作、视图、存储过程、�
     CALL productpricing(1, @pmin, @pmax, @pavg); //不显示任何数据,返回以后可以显示的变量
     SELECT @pmin, @pmax, @pavg; //显示变量值
 ```
+
 ### 创建智能存储过程
 ```
     //创建订单总价存储过程，并且有条件的把营业税加入总价
@@ -155,6 +164,7 @@ MySQL 数据库基础学习之三，包括表操作、视图、存储过程、�
 ### 游标的使用
 * MySQL的游标只能用于存储过程
 * 使用前必须声明，声明后，必须打开游标以供使用，结束使用后，必须关闭游标
+
 #### 创建游标
 ```
     CREATE PROCEDURE allorders()
@@ -164,11 +174,13 @@ MySQL 数据库基础学习之三，包括表操作、视图、存储过程、�
         SELECT order_num FROM orders;
     END;
 ```
+
 #### 打开和关闭游标
 ```
     OPEN ordernumbers;
     CLOSE ordernumbers;
 ```
+
 #### 使用游标数据
 ```
     CREATE PROCEDURE allorders()
@@ -208,6 +220,7 @@ MySQL 数据库基础学习之三，包括表操作、视图、存储过程、�
     CREATE TRIGGER newproduct AFTER INSERT ON products //AFTER INSERT指插入成功后触发
     FOR EACH ROW SELECT 'product added'; //FOR EACH ROW表示对每行插入执行
 ```
+
 ### 使用触发器
 #### INSERT触发器
 * INSERT触发器内，可以引用一个名为NEW的虚拟表，以访问被插入的行
@@ -217,6 +230,7 @@ MySQL 数据库基础学习之三，包括表操作、视图、存储过程、�
     CREATE TRIGGER newproduct AFTER INSERT ON products
     FOR EACH ROW SELECT NEW.prod_id;
 ```
+
 #### UPDATE触发器
 * UPDATE触发器内，可以引用一个名为OLD的虚拟表访问UPDATE前的值，引用一个名为NEW的虚拟表访问UPDATE后的值
 * BEFORE UPDATE中，NEW中的值也可以被更新
@@ -226,6 +240,7 @@ MySQL 数据库基础学习之三，包括表操作、视图、存储过程、�
     CREATE TRIGGER updateproduct BEFORE UPDATE ON products
     FOR EACH ROW SET NEW.prod_name = UPPER(NEW.prod_name);
 ```
+
 #### DELETE触发器
 * DELETE触发器内，可以引用一个名为OLD的虚拟表访问DELETE的行
 * OLD中的值只能读，不能更新
@@ -246,11 +261,13 @@ MySQL 数据库基础学习之三，包括表操作、视图、存储过程、�
 * 回退(rollback) 指撤销指定SQL语句的过程
 * 提交(commit)  指将未存储的SQL语句结果写入数据库表
 * 保留点(savepoint) 指事务处理中设置的临时占位符，以对其发布回退操作
+
 ### 启用事务处理
 ```
     //事务开始
     START TRANSACTION;
 ```
+
 ### 使用ROLLBACK
 ```
     SELECT * FROM products;
@@ -260,6 +277,7 @@ MySQL 数据库基础学习之三，包括表操作、视图、存储过程、�
     ROLLBACK; //回退START TRANSACTION后的所有SQL语句
     SELECT * FROM products;
 ```
+
 ### 使用commit
 ```
     START TRANSACTION;
@@ -267,6 +285,7 @@ MySQL 数据库基础学习之三，包括表操作、视图、存储过程、�
     DELETE FROM orders WHERE order_id = 10011;
     COMMIT;//任一DELETE语句失败，都不会提交
 ```
+
 ### 使用保留点
 ```
     START TRANSACTION;
