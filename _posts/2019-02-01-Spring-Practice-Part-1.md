@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Spring初始之数据访问"
+title:  "Spring初识之数据访问"
 date:   2019-02-01 08:00:30 +0200
 categories: java spring database
 ---
@@ -37,13 +37,13 @@ Spring入门,及搭建Springboot项目并连接各种数据源，进行数据访
 2. Language选择Java
 3. Spring Boot版本根据需要选择(**本文基于v2.2.4.RELEASE**)
 4. Project Metadata
-    * Group: com.example
-    * Artifact: demo
-    * Name: demo
-    * Description: A demo project
-    * Package name: com.example.demo
-    * Packaging: jar
-    * java: 根据需要选择版本
+* Group: com.example
+* Artifact: demo
+* Name: demo
+* Description: A demo project
+* Package name: com.example.demo
+* Packaging: jar
+* java: 根据需要选择版本
 5. Dependencies根据需要引入
 
 ## Spring JDBC实践
@@ -55,7 +55,7 @@ Spring入门,及搭建Springboot项目并连接各种数据源，进行数据访
 #### 配置数据源
 1. 配置文件
 ```yml
-  datasource:
+datasource:
     url: jdbc:mysql://localhost:3306/test_1?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT
     username: root
     password: root
@@ -67,6 +67,7 @@ Spring入门,及搭建Springboot项目并连接各种数据源，进行数据访
 * DataSourceTransactionManagerAutoConfiguration
 * JdbcTemplateAutoConfiguration等
 3. 也可手动配置, 需要在SpringBootApplication中排除上述内容, 并新建DataSourceConfig.java
+
 * 数据源
 ```java
     @Bean
@@ -114,7 +115,7 @@ Spring入门,及搭建Springboot项目并连接各种数据源，进行数据访
 
 ### 连接池
 #### HikariCP-A high-performance JDBC connection pool
-##### Hikari为什么快[Down the Rabbit Hole](https://github.com/brettwooldridge/HikariCP/wiki/Down-the-Rabbit-Hole)
+##### Hikari为什么快([Down the Rabbit Hole](https://github.com/brettwooldridge/HikariCP/wiki/Down-the-Rabbit-Hole))
 1. 字节码级别的优化-尽量的利用JIT的内联手段
 2. 字节码级别的优化-利用更容易被JVM优化的指令
 * `invokevirtual`替换成`invokestatic`，更加容易被JVM优化
@@ -180,6 +181,7 @@ druid.filter.wall.delete-allow: false
 druid.ilter.wall.config.drop-table-allow: false
 ```
 3. 慢SQL日志
+
 * 系统属性配置
     * druid.stat.logSlowSql=true
     * druid.stat.slowSqlMillis=3000
@@ -217,6 +219,7 @@ druid.ilter.wall.config.drop-table-allow: false
 
 #### JdbcTemplate
 1. 简单操作
+
 * query
 ```java
  jdbcTemplate.query("SELECT * FROM test_01", new RowMapper<Foo>() {
@@ -237,8 +240,8 @@ druid.ilter.wall.config.drop-table-allow: false
 * update
 `jdbcTemplate.update("INSERT INTO test_01 (name) VALUES (?)", name);`
 * execute
-
 2. 批处理
+
 * JdbcTemplate
     * batchUpdate
     * batchPreparedStatementSetter
@@ -272,10 +275,12 @@ jdbcTemplate.batchUpdate("INSERT INTO test_01 (name) VALUES (?)",
 ### Spring的事务抽象
 #### 核心接口
 1. PlatformTransactionManager
+
 * 方法
     * void commit
     * void rollback
     * TransactionStatus getTransaction
+
 * 实现
     * DataSourceTransactionManager
     * HibernateTransactionManager
@@ -283,6 +288,7 @@ jdbcTemplate.batchUpdate("INSERT INTO test_01 (name) VALUES (?)",
     * ...
 
 2. TransactionDefinition
+
 * Propagation 传播特性
 * Isolation 隔离性
 * TimeOut 超时
@@ -305,7 +311,7 @@ jdbcTemplate.batchUpdate("INSERT INTO test_01 (name) VALUES (?)",
 5. int ISOLATION_SERIALIZABLE = 8;      无脏读, 可重复读、无幻读
 
 #### 编程式事务
-1. TransactionTemplate 
+1. TransactionTemplate
 * TransactionCallback(有返回值)
 * TransactionCallbackWithoutResult(无返回值)
 ```java
@@ -338,20 +344,21 @@ jdbcTemplate.batchUpdate("INSERT INTO test_01 (name) VALUES (?)",
 ##### @Transactional
 1. 在需要的类或方法上添加此注解
 2. 此注解配置项有
-    * transactionManger
-    * propagation
-    * isolation
-    * timeout
-    * readOnly
-    * callback
 
-### SPring的JDBC异常抽象
-Spring会将数据操作的异常转换为DataAccessException，无论使用何种数据访问方式，都能 使用一样的异常
+* transactionManger
+* propagation
+* isolation
+* timeout
+* readOnly
+* callback
+
+### Spring的JDBC异常抽象
+Spring会将数据操作的异常转换为DataAccessException,无论使用何种数据访问方式,都能使用一样的异常
 1. Spring通过SQLErrorCodeSQLExceptionTranslator类解析错误码
 2. ErrorCode都放在spring-jdbc包下的support/sql-error-codes.xml下,包含了不同数据库的错误码
 
 
-### **扩展**
+### 扩展
 #### 一些常用注解
 1. Java Config相关注解
 * @Configuration 表示当前java类是一个配置类
@@ -381,10 +388,12 @@ Spring会将数据操作的异常转换为DataAccessException，无论使用何�
 
 #### 常用JPA注解
 1. 实体
+
 * @Entity
 * @MappedSuperclass
 * @Table(name)
 2. 主键
+
 * @Id
     * @GeneratedValue(strategy, generator)
     * @SequenceGenerator(name, sequenceName)
@@ -431,6 +440,7 @@ public static class Product {
 
 #### Spring Data JPA的Repository如何从接口变成Bean的 
 1. Repository Bean是如何创建的
+
 * JpaRepositoriesRegistrar
     * 激活了@EnableJpaRepositories
     * 返回了JpaRepositoryConfigExtension
@@ -441,10 +451,13 @@ public static class Product {
 * JpaRepositoryFactory.getTargetRepository
     * 创建了Repository
 2. 接口中自定义的方法是如何被解释的
+
 * RepositoryFactorySupport.getRepository添加了Advice
     * DefaultMethodInvokingMethodInterceptor
     * QueryExcutorMethodInterceptor
+
 * AbstractJpaQuery.execute 执行具体的查询
+
 * 语法解析在spring-data-commons包repository中的的Part中
 
 ### MyBatis
@@ -463,7 +476,9 @@ public static class Product {
 1. @MapperScan配置扫描位置
 2. @Mapper 定义接口
 3. XML与注解 定义映射
+
 * 注解方式
+
 ```java
 @Insert("insert into customers (name, address, create_time, update_time)"
         + "values (#{name}, #{address}, now(), now())")
@@ -478,12 +493,14 @@ int save(Customer customer);
 })
 Customer findById(@Param("id") Long id);
 ```
+
 * XML方式
 
 #### Mybatis实用工具
 ##### [Mybatis Generator](https://mybatis.org/generator/)
 1. 它是Mybatis官方提供的代码生成器,根据数据库表生成相关代码(POJO、Mapper接口、SQL Map XML)
 2. 运行Mybatis Generator方式
+
 * 命令行：java -jar mybatis-generator-core-x.x.x -configfile generatorConfig.xml
 * Maven Plugin(mybatis-generator-maven-plugin)
     * mvn mybatis-generator:generate
@@ -501,6 +518,7 @@ Customer findById(@Param("id") Long id);
 ```
 
 3. 配置Mybatis Generator
+
 * generatorConfiguration
 * context
     * jdbcConnection
@@ -509,6 +527,7 @@ Customer findById(@Param("id") Long id);
     * javaClientGenerator
     * table
 4. 内置插件(mybatis-generator-plugins)
+
 * FluentBuilderMethodsPlugin
 * ToStringPlugin
 * SerializablePlugin
@@ -557,6 +576,7 @@ Customer findById(@Param("id") Long id);
 ```
 
 5. 使用生成的对象
+
 * 简单操作直接使用生成的xxxMapper的方法
 * 复杂操作使用生成的xxxExample对象
 
@@ -583,7 +603,9 @@ void playWithArtifacts() {
 #### [Mybatis PageHelper](https://github.com/pagehelper/Mybatis-PageHelper)
 1. 支持多种数据库、多种分页方式、支持spring-boot集成[pagehelper-spring-boot-starter](https://github.com/pagehelper/pagehelper-spring-boot)
 2. 配置PageHelper
+
 * 引入依赖
+
 ```java
 <dependency>
     <groupId>com.github.pagehelper</groupId>
@@ -591,7 +613,9 @@ void playWithArtifacts() {
     <version>1.2.4</version>
 </dependency>
 ```
+
 * 配置参数
+
 ```yml
 pagehelper:
   offset-as-page-num: true #offset作为分页使用
@@ -599,6 +623,7 @@ pagehelper:
   page-size-zero: true # pageSize=0时返回所有数据
   support-methods-arguments: true
 ```
+
 * java代码
 ```java
     UserExample example = new UserExample();
@@ -720,7 +745,10 @@ MongoDB 将数据存储为一个文档，数据结构由键值(key=>value)对组
 2. 大于等于（>=）： $gte
 3. 小于（<）：$lt
 4. 小于等于（<=）：$lte
-`db.collectionname.find({age : {$gt : 30, $lt : 60,}})`
+
+```java
+db.collectionname.find({age : {$gt : 30, $lt : 60,}})
+```
 
 ##### Navicat连接mongoDB并创建集合和添加数据
 1. 连接参数介绍
@@ -756,6 +784,7 @@ MongoDB 将数据存储为一个文档，数据结构由键值(key=>value)对组
 2. 实体
 * @Document 类似entity
 * @ID
+
 ```java
 @Document
 @Data
@@ -772,9 +801,11 @@ public class Product {
     private Date updateTime;
 }
 ```
+
 3. MongoTemplate基本用法
 * save/remove
 * Criteria/Query/Update
+
 ```java
 //插入
 Product product = Product.builder()
@@ -802,6 +833,7 @@ mongoTemplate.remove(pr);
 ```
 
 3. Repository基本用法
+
 ```java
 @EnableMongoRepositories
 public class test {
@@ -862,9 +894,9 @@ redis是一个开源的、使用C语言编写的、支持网络交互的、可�
 3. 登录 `docker exec it redis redis-cli`
 
 #### Redis基本命令
-1. keys * 查询key
-2. hgetall key 查询key下所有value
-3. flushall 清空缓存
+1. `keys *` 查询key
+2. `hgetall key` 查询key下所有value
+3. `flushall` 清空缓存
 
 #### Spring对Redis的支持
 ##### Spring Data Redis
@@ -877,6 +909,7 @@ redis是一个开源的、使用C语言编写的、支持网络交互的、可�
 ##### Spring的缓存抽象-基于AOP
 为不同的缓存提供一层抽象,为java方法增加缓存，缓存执行结果,支持ConcurrentMap、EhCache、Caffeine、JCache,主要接口Cache、CacheManager
 1. 基于注解的缓存
+
 * @EnableCaching——开启缓存
     * @Cachable——执行方法的结果在缓存中直接在缓存中取,不在则将执行结果放入缓存
     * @CacheEvict——缓存清理
@@ -888,7 +921,8 @@ redis是一个开源的、使用C语言编写的、支持网络交互的、可�
 * 配置依赖
 spring-boot-starter-cache、spring-boot-starter-data-redis
 * 配置缓存
-```
+
+```java
 spring.cache.type=redis
 spring.cache.cache-names=coffee
 spring.cache.redis.time-to-live=5000
@@ -896,15 +930,18 @@ spring.cache.redis.cache-null-values=false
 
 spring.redis.host=localhost
 ```
+
 * 开启缓存@EnableCaching
 
 ##### 使用RedisTemplate、Repository
 1. 与Redis建立连接
+
 * 配置连接工厂 LettuceConnectionFactory与JedisConnectionFactory
     * RedisStandaloneConfiguration
     * RedisSentinelConfiguration
     * RedisClusterConfiguration
 2. Lettuce内置支持读写分离LettuceClientConfigurationBuilderCustomizer
+
 ```java
 @Bean
 public LettuceClientConfigurationBuilderCustomizer customizer() {
@@ -913,6 +950,7 @@ public LettuceClientConfigurationBuilderCustomizer customizer() {
 ```
 
 3. RedisTemplate、StringRedisTemplate
+
 ```java
 @Bean
 public RedisTemplate<String, Coffee> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
@@ -952,6 +990,7 @@ Reactor是基于JVM的非阻塞API，他直接跟JDK8中的API相结合，比如
 #### 示例
 1. 引入reactor依赖
 2. 简单应用
+
 ```java
 Flux.range(1, 6)
     //每次执行Request的时候打印这次请求了多少个数
@@ -979,6 +1018,7 @@ Flux.range(1, 6)
 
 ### Reactive访问Redis
 Spring Data Redis中的主要支持
+
 * ReactiveRedisConnection 建立Reactive连接
 * ReactiveRedisConnectionFactory
 * ReactiveRedisTemplate
@@ -1003,6 +1043,7 @@ Flux.fromIterable(list) //list是从数据库中查询出来的
     .subscribe(b -> log.info("Boolean: {}", b), //对每一个Flux Boolean的subscribe打印一个布尔值
             e -> log.error("Exception {}", e.getMessage()));
 ```
+
 ### Reactive访问MongoDB
 1. MongoDB官方提供了支持Reactive的驱动: mongodb-driver-reactivestreams
 2. Spring Data MongoDB中的主要支持
@@ -1088,18 +1129,25 @@ public class PerformanceAspect {
 ##### HikariCP
 可以使用p6spy打印SQL
 1. 引入依赖
-```
+
+```yml
 <dependency>
     <groupId>p6spy</groupId>
     <artifactId>p6spy</artifactId>
     <version>3.8.1</version>
 </dependency>
 ```
+
 2. 修改datasource
-`spring.datasource.driver-class-name=com.p6spy.engine.spy.P6SpyDriver`
-`spring.datasource.url=jdbc:p6spy:mysql://localhost:3306/`
+
+```yml
+spring.datasource.driver-class-name=com.p6spy.engine.spy.P6SpyDriver
+spring.datasource.url=jdbc:p6spy:mysql://localhost:3306/
+```
+
 3. 添加spy.properties
-```java
+
+```yml
 //单行日志
 logMessageFormat=com.p6spy.engine.spy.appender.SingleLineFormat
 //使用Slf4J记录sql
@@ -1113,7 +1161,7 @@ outagedetectioninterval=2
 ##### Alibaba Druid
 Druid可以使用p6spy打印日志, 也可以使用自身配置
 1. 修改datesouce,添加配置
-```java
+```yml
 spring.datasource.slf4j.enabled=true
 spring.datasource.slf4j.statement-create-after-log-enabled=false
 spring.datasource.slf4j.statement-close-after-log-enabled=false
@@ -1121,7 +1169,7 @@ spring.datasource.slf4j.result-set-open-after-log-enabled=false
 spring.datasource.slf4j.result-set-close-after-log-enabled=false
 ```
 2. 指定druid的日志登记为debug才能显示
-```java
+```yml
 logging.level.druid.sql.Statement=debug
 ```
 

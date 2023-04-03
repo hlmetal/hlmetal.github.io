@@ -11,7 +11,6 @@ categories: database jdbc
 ## 使用Hibernate
 Hibernate Session可以实现CRUD功能
 1. 导入Hibernate
-
 ```
 <dependency>
     <groupId>org.hibernate</groupId>
@@ -90,12 +89,14 @@ Hibernate Session可以实现CRUD功能
 ```
 
 5. 利用Hibernate操作数据库
+
 ## HQL
 Hibernate为了消除SQL提供了替代的查询语言 HQL.
 HQL的语法与SQL非常类似:
 1. 将SQL中的表名替换为对应的实体类名
 2. 将SQL中的列名(字段名)替换为对应的实体属性名
 3. 使用Query接口执行HQL查询
+
 ## 整合SSH
 1. 创建项目
     - 创建部署描述文件
@@ -337,7 +338,6 @@ Spring 提供了 HibernateTemplate类 用于封装Session接口, 在Session接�
 
 *案例*
 1. 在spring-hibernate.xml 中配置HibernateTemplate
-
 ```
 <bean id="hibernateTemplate" 
         class="org.springframework.orm.hibernate4.HibernateTemplate">
@@ -349,7 +349,7 @@ Spring 提供了 HibernateTemplate类 用于封装Session接口, 在Session接�
 3. 添加映射文件 hbm/User.hbm.xml
 4. 测试
 *使用HibernateTemplate实现UserDao*
-1.配置hibernate.xml
+* 配置hibernate.xml
 
 ```
 <!-- 配置Hibernate事务管理器 -->
@@ -363,9 +363,9 @@ Spring 提供了 HibernateTemplate类 用于封装Session接口, 在Session接�
 <context:component-scan base-package="com.dmetal.ssh.dao"/>
 ```
 
-2. 编写userDAO的接口
-3. 实现UserDAO的接口
-4. 测试
+* 编写userDAO的接口
+* 实现UserDAO的接口
+* 测试
 
 ## 持久对象生存周期管理
 Hibernate 为了自动化的处理ORM, 设计了对象持久状态管理。

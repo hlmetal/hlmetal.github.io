@@ -93,6 +93,7 @@ Vue的状态管理模式，用于管理共享数据，也即把组件共享状�
 * getters：计算属性，类似于computed。当Store数据源发生变化时，Getter的返回值会自动更新。也可通过mapGetters辅助函数， 将vuex中getters映射为当前组件的计算属性。
 * actions: 与mutations类似，它是用来进行异步操作的，在actions中发异步请求获取数据后，调用mutations来修改数据
 * modules: 用于拆分复杂业务的共享数据。将不同业务不同场景的数据放在不同模块中，结构清晰，方便开发维护。加上模块后，访问数据等需要额外添加模块名。
+
 #### element(基于vue的UI)
 基于vue.js的一套桌面端UI框架，element-ui使用简单，界面清晰，非常适合用于CMS。element组件使用参考[element官方文档](https://element.eleme.io/#/zh-CN)
 
