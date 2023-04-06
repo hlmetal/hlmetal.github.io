@@ -626,13 +626,13 @@ pagehelper:
 
 * java代码
 ```java
-    UserExample example = new UserExample();
-	RowBounds rowBounds = new RowBounds(1, 3);
-	userMapper.selectByExampleWithRowbounds(example, rowBounds)
-				.forEach(c -> log.info("Page(1) Coffee {}", c));
-	List<User> list = userMapper.selectByExampleWithRowbounds(example, rowBounds);
-	PageInfo page = new PageInfo(list);
-	log.info("PageInfo: {}", page);
+UserExample example = new UserExample();
+RowBounds rowBounds = new RowBounds(1, 3);
+userMapper.selectByExampleWithRowbounds(example, rowBounds)
+            .forEach(c -> log.info("Page(1) Coffee {}", c));
+List<User> list = userMapper.selectByExampleWithRowbounds(example, rowBounds);
+PageInfo page = new PageInfo(list);
+log.info("PageInfo: {}", page);
 ```
 
 ## NoSQL初识及简单实践

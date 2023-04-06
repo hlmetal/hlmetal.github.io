@@ -11,7 +11,8 @@ categories: database jdbc
 ## 使用Hibernate
 Hibernate Session可以实现CRUD功能
 1. 导入Hibernate
-```
+
+```java
 <dependency>
     <groupId>org.hibernate</groupId>
     <artifactId>hibernate-core</artifactId>
@@ -31,7 +32,7 @@ Hibernate Session可以实现CRUD功能
 
 2. 配置主配置文件 hibernate.cfg.xml
 
-```
+```java
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC
     "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
@@ -68,7 +69,7 @@ Hibernate Session可以实现CRUD功能
 无参构造，有参构造，getter/setter，hascode/equals
 4. 配置子配置文件(映射文件) hbm/User.hbm.xml
 
-```
+```java
 <?xml version="1.0" encoding="UTF-8"?>
 	<!DOCTYPE hibernate-mapping PUBLIC 
     	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
@@ -120,7 +121,7 @@ HQL的语法与SQL非常类似:
 4. 整合具体步骤:
 * 创建项目导入包:
 
-```
+```java
 <dependency>
     <groupId>org.apache.struts</groupId>
     <artifactId>struts2-core</artifactId>
@@ -173,7 +174,7 @@ HQL的语法与SQL非常类似:
 
 * 配置web.xml
 
-```
+```java
   <filter>
     <display-name>StrutsPrepareAndExecuteFilter</display-name>
     <filter-name>StrutsPrepareAndExecuteFilter</filter-name>
@@ -194,7 +195,7 @@ HQL的语法与SQL非常类似:
 
 * 添加struts配置文件: struts.xml
 
-```
+```java
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 从 struts-2.5.dtd 文件中复制 DOCTYPE -->
 <!DOCTYPE struts PUBLIC
@@ -206,7 +207,7 @@ HQL的语法与SQL非常类似:
 
 * 添加spring-struts配置文件: conf/spring-struts.xml
 
-```
+```java
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- /** 配置文件描述: spring-mvc配置 */ -->
 <beans default-lazy-init="true"
@@ -241,7 +242,7 @@ HQL的语法与SQL非常类似:
 
 * 添加数据库连接参数文件 conf/conf.properties
 
-```
+```java
 # conf.properties
 driver=com.mysql.jdbc.Drvier
 url=jdbc:mysql://localhost:3306/ssh
@@ -256,7 +257,7 @@ timeBetweenLogStatsMillis=60000
 
 * 利用Spring配置文件, 配置Hibernate: conf/spring-hibernate.xml
 
-```
+```java
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- /** 配置文件描述: spring-mvc配置 */ -->
 <beans default-lazy-init="true"
@@ -338,20 +339,19 @@ Spring 提供了 HibernateTemplate类 用于封装Session接口, 在Session接�
 
 *案例*
 1. 在spring-hibernate.xml 中配置HibernateTemplate
-```
+```java
 <bean id="hibernateTemplate" 
         class="org.springframework.orm.hibernate4.HibernateTemplate">
     <property name="sessionFactory" ref="sessionFactory"/>
 </bean>
 ```
-
 2. 添加实体类 User
 3. 添加映射文件 hbm/User.hbm.xml
 4. 测试
 *使用HibernateTemplate实现UserDao*
 * 配置hibernate.xml
 
-```
+```java
 <!-- 配置Hibernate事务管理器 -->
 <bean id="txMgr" 
     class="org.springframework.orm.hibernate4.HibernateTransactionManager">

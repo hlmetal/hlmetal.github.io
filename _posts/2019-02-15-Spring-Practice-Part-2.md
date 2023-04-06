@@ -162,7 +162,7 @@ spring.thymeleaf.prefix=classpath:/templates/
 spring.thymeleaf.suffix=.html
 ```
 3. 简单示例
-```html
+```java
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
 <h2>User Information</h2>
@@ -242,6 +242,7 @@ if (result.hasErrors()) {
 5. 配置拦截器
 * 常规方法 WebMvcConfigurer.addInterceptors()
 * springboot中配置: 创建一个带`@Configuration`的WebMvcConfigurer配置类,自己实现addInterceptors方法
+
 ```java
 //配置拦截器
 @Override
@@ -286,6 +287,7 @@ public class PerformanceInteceptor implements HandlerInterceptor {
     }
 }
 ```
+
 ## 访问Web资源
 ### 通过RestTemplate访问web资源
 ```java
@@ -297,6 +299,7 @@ public RestTemplate restTemplate(RestTemplateBuilder builder) {
     return builder.build();
 }
 ```
+
 ### 常用方法
 1. GET请求 `getForObject()``getForEntity()`
 2. POST请求 `postForObject()``postForEntity()`
@@ -371,6 +374,7 @@ ResponseEntity<List<Product>> list = restTemplate
 * OkHttp提供的`OkHttp3ClientRequestFactory`
 2. 优化底层请求策略
 * 连接管理 PoolingHttpClientConnectionManager、keepAlive策略
+
 ```java
 public HttpComponentsClientHttpRequestFactory requestFactory() {
     PoolingHttpClientConnectionManager connectionManager =
@@ -394,6 +398,7 @@ public HttpComponentsClientHttpRequestFactory requestFactory() {
     return requestFactory;
 }
 ```
+
 * 超时设置 connectTimeOut/readTimeOut
 * SSL校验
 
@@ -414,6 +419,7 @@ public WebClient webClient(WebClient.Builder builder) {
 * 获取结果: retrieve()/exchange()
 * 处理Http Status: onStatus()
 * 应答正文: bodyToMono()/bodyToFlux()
+
 ```java
 webClient.get()
         .uri("/product/{id}", 1)
@@ -446,6 +452,7 @@ webClient.get()
         .forEach(c -> log.info("Product in List: {}", c));
 }
 ```
+
 ## Web开发进阶
 ### RESTful Web Service
 #### Richardson成熟度模型
@@ -479,6 +486,7 @@ webClient.get()
 * HEAD  获取与GET一样的HTTP请求头信息, 但没有响应体(安全/幂等)
 * OPTIONS   获取资源支持的HTTP方法列表(安全/幂等)
 * TRACE     让服务器返回其收到的HTTP头(安全/幂等)
+
 ```java
 /user/ GET 获取user
 /user/ POST 创建user
@@ -545,6 +553,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 3. 如何访问HATEOAS服务
 * 配置JacksonJSON: 注册HAL
 * 操作超链接
+
 ```java
 // 在RestTemplate中注册此Bean
 @Bean
