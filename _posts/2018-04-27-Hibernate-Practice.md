@@ -10,7 +10,7 @@ categories: database jdbc
 
 ## 使用Hibernate
 Hibernate Session可以实现CRUD功能
-1. 导入Hibernate
+* 导入Hibernate
 
 ```java
 <dependency>
@@ -30,7 +30,7 @@ Hibernate Session可以实现CRUD功能
 </dependency>
 ```
 
-2. 配置主配置文件 hibernate.cfg.xml
+* 配置主配置文件 hibernate.cfg.xml
 
 ```java
 <?xml version="1.0" encoding="UTF-8"?>
@@ -65,9 +65,9 @@ Hibernate Session可以实现CRUD功能
 </hibernate-configuration>
 ```
 
-3. 声明实体类
+* 声明实体类
 无参构造，有参构造，getter/setter，hascode/equals
-4. 配置子配置文件(映射文件) hbm/User.hbm.xml
+* 配置子配置文件(映射文件) hbm/User.hbm.xml
 
 ```java
 <?xml version="1.0" encoding="UTF-8"?>
@@ -89,7 +89,7 @@ Hibernate Session可以实现CRUD功能
 </hibernate-mapping>
 ```
 
-5. 利用Hibernate操作数据库
+* 利用Hibernate操作数据库
 
 ## HQL
 Hibernate为了消除SQL提供了替代的查询语言 HQL.
@@ -338,16 +338,18 @@ init-method="init" destroy-method="close">
 Spring 提供了 HibernateTemplate类 用于封装Session接口, 在Session接口基础之上提供了更加简洁高效的API方法. 使用HibernateTemplate可以替代Sesison接口. 并且更加简洁方便
 
 *案例*
-1. 在spring-hibernate.xml 中配置HibernateTemplate
+* 在spring-hibernate.xml 中配置HibernateTemplate
+
 ```java
 <bean id="hibernateTemplate" 
         class="org.springframework.orm.hibernate4.HibernateTemplate">
     <property name="sessionFactory" ref="sessionFactory"/>
 </bean>
 ```
-2. 添加实体类 User
-3. 添加映射文件 hbm/User.hbm.xml
-4. 测试
+
+* 添加实体类 User
+* 添加映射文件 hbm/User.hbm.xml
+* 测试
 *使用HibernateTemplate实现UserDao*
 * 配置hibernate.xml
 

@@ -391,9 +391,11 @@ management.metrics.web.server.auto-time-requests
 * jetty
 * undertow
 * reactor-netty
+
 #### 端口
 * `server.prot`
 * `server.address`
+
 #### 压缩配置
 
 ```java
@@ -431,7 +433,8 @@ server.use-forward-headers
 server.servlet.session.timeout
 ```
 
-7.编程方式修改配置: 实现`WebServerFactoryCustomizer<T>`接口
+#### 编程方式修改配置
+实现`WebServerFactoryCustomizer<T>`接口
 
 ```java
 @Override
@@ -614,8 +617,8 @@ MANIFEST.MF中的Main-Class: org.springframework.boot.loader.JarLauncher会找�
 FROM java:8
 EXPOSE 8080
 ARG JAR_FILE
-ADD target/${JAR_FILE} /waiter-service.jar
-ENTRYPOINT ["java", "-jar","/waiter-service.jar"]
+ADD target/${JAR_FILE} /hualan-spring.jar
+ENTRYPOINT ["java", "-jar","/hualan-spring.jar"]
 ```
 
 2. 配置dockerfile-maven-plugin插件

@@ -162,6 +162,7 @@ spring.thymeleaf.prefix=classpath:/templates/
 spring.thymeleaf.suffix=.html
 ```
 3. 简单示例
+
 ```java
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
@@ -182,9 +183,7 @@ spring.thymeleaf.suffix=.html
 </table>
 </body>
 </html>
-```
 
-```java
 @ModelAttribute
 public List<User> userList() {
     UserExample example = new UserExample();

@@ -218,7 +218,6 @@ druid.ilter.wall.config.drop-table-allow: false
 * @RestController 与Restful Web Service相关
 
 #### JdbcTemplate
-1. 简单操作
 
 * query
 ```java
@@ -240,7 +239,6 @@ druid.ilter.wall.config.drop-table-allow: false
 * update
 `jdbcTemplate.update("INSERT INTO test_01 (name) VALUES (?)", name);`
 * execute
-2. 批处理
 
 * JdbcTemplate
     * batchUpdate
@@ -274,8 +272,7 @@ jdbcTemplate.batchUpdate("INSERT INTO test_01 (name) VALUES (?)",
 
 ### Spring的事务抽象
 #### 核心接口
-1. PlatformTransactionManager
-
+PlatformTransactionManager
 * 方法
     * void commit
     * void rollback
@@ -287,8 +284,7 @@ jdbcTemplate.batchUpdate("INSERT INTO test_01 (name) VALUES (?)",
     * JtaTransactionManager
     * ...
 
-2. TransactionDefinition
-
+TransactionDefinition
 * Propagation 传播特性
 * Isolation 隔离性
 * TimeOut 超时
@@ -387,13 +383,11 @@ Spring会将数据操作的异常转换为DataAccessException,无论使用何种
 * 主要模块： Spring Data Commons/JDBC/JPA/Redis/...
 
 #### 常用JPA注解
-1. 实体
-
+实体
 * @Entity
 * @MappedSuperclass
 * @Table(name)
-2. 主键
-
+主键
 * @Id
     * @GeneratedValue(strategy, generator)
     * @SequenceGenerator(name, sequenceName)
@@ -411,11 +405,11 @@ public static class Product {
 }
 ```
 
-3. 映射
+映射
 * @Column(name,nullable,length,insertable,updatable)
 * @JoinTable(name)\@JoinColumn(name)
 
-4. 关系
+关系
 * @OneToOne\@OneToMany\@ManyToOne\@ManyToMany
 * @Orderby
 
@@ -433,14 +427,14 @@ public static class Product {
     * ...OrderBy...ASC/DESC
     * And/Or/IgnoreCase
     * Top/Fisrt/Distinct
+
 * 分页查询接口
     * PagingAndSortingRepository
     * Pageable/Sort
     * Slice/Page
 
 #### Spring Data JPA的Repository如何从接口变成Bean的 
-1. Repository Bean是如何创建的
-
+Repository Bean是如何创建的
 * JpaRepositoriesRegistrar
     * 激活了@EnableJpaRepositories
     * 返回了JpaRepositoryConfigExtension
@@ -450,8 +444,8 @@ public static class Product {
     * 取得Repository配置
 * JpaRepositoryFactory.getTargetRepository
     * 创建了Repository
-2. 接口中自定义的方法是如何被解释的
 
+接口中自定义的方法是如何被解释的
 * RepositoryFactorySupport.getRepository添加了Advice
     * DefaultMethodInvokingMethodInterceptor
     * QueryExcutorMethodInterceptor
@@ -498,9 +492,7 @@ Customer findById(@Param("id") Long id);
 
 #### Mybatis实用工具
 ##### [Mybatis Generator](https://mybatis.org/generator/)
-1. 它是Mybatis官方提供的代码生成器,根据数据库表生成相关代码(POJO、Mapper接口、SQL Map XML)
-2. 运行Mybatis Generator方式
-
+它是Mybatis官方提供的代码生成器,根据数据库表生成相关代码(POJO、Mapper接口、SQL Map XML),运行Mybatis Generator方式如下,
 * 命令行：java -jar mybatis-generator-core-x.x.x -configfile generatorConfig.xml
 * Maven Plugin(mybatis-generator-maven-plugin)
     * mvn mybatis-generator:generate
@@ -517,8 +509,7 @@ Customer findById(@Param("id") Long id);
     myBatisGenerator.generate(null);
 ```
 
-3. 配置Mybatis Generator
-
+**配置Mybatis Generator**
 * generatorConfiguration
 * context
     * jdbcConnection
@@ -526,8 +517,8 @@ Customer findById(@Param("id") Long id);
     * sqlMapGenerator
     * javaClientGenerator
     * table
-4. 内置插件(mybatis-generator-plugins)
 
+**内置插件(mybatis-generator-plugins)**
 * FluentBuilderMethodsPlugin
 * ToStringPlugin
 * SerializablePlugin
@@ -575,8 +566,7 @@ Customer findById(@Param("id") Long id);
 </generatorConfiguration>
 ```
 
-5. 使用生成的对象
-
+**使用生成的对象**
 * 简单操作直接使用生成的xxxMapper的方法
 * 复杂操作使用生成的xxxExample对象
 
@@ -625,6 +615,7 @@ pagehelper:
 ```
 
 * java代码
+
 ```java
 UserExample example = new UserExample();
 RowBounds rowBounds = new RowBounds(1, 3);
@@ -779,9 +770,9 @@ db.collectionname.find({age : {$gt : 30, $lt : 60,}})
 ##### Spring Data MongoDB
 提供类似jdbcTemplate的MongoTemplate对数据做各种增删改查操作，提供了类似JPA Repository的Repository 
 ##### 基本用法
-1. 项目配置
+**项目配置**
 `spring.data.mongodb=uri: mongodb://test:test@localhost:27017/test`
-2. 实体
+**实体**
 * @Document 类似entity
 * @ID
 
@@ -802,7 +793,7 @@ public class Product {
 }
 ```
 
-3. MongoTemplate基本用法
+**MongoTemplate基本用法**
 * save/remove
 * Criteria/Query/Update
 
@@ -832,7 +823,7 @@ Product pr = mongoTemplate.findById(saved.getId(), Product.class);
 mongoTemplate.remove(pr);
 ```
 
-3. Repository基本用法
+**Repository基本用法**
 
 ```java
 @EnableMongoRepositories
@@ -908,7 +899,7 @@ redis是一个开源的、使用C语言编写的、支持网络交互的、可�
 
 ##### Spring的缓存抽象-基于AOP
 为不同的缓存提供一层抽象,为java方法增加缓存，缓存执行结果,支持ConcurrentMap、EhCache、Caffeine、JCache,主要接口Cache、CacheManager
-1. 基于注解的缓存
+**基于注解的缓存**
 
 * @EnableCaching——开启缓存
     * @Cachable——执行方法的结果在缓存中直接在缓存中取,不在则将执行结果放入缓存
@@ -917,7 +908,7 @@ redis是一个开源的、使用C语言编写的、支持网络交互的、可�
     * Caching
     * @CacheConfig 设置缓存，例如缓存名
 
-2. 通过SpringBoot配置Redis缓存
+**通过SpringBoot配置Redis缓存**
 * 配置依赖
 spring-boot-starter-cache、spring-boot-starter-data-redis
 * 配置缓存
@@ -934,13 +925,13 @@ spring.redis.host=localhost
 * 开启缓存@EnableCaching
 
 ##### 使用RedisTemplate、Repository
-1. 与Redis建立连接
+**与Redis建立连接**
 
 * 配置连接工厂 LettuceConnectionFactory与JedisConnectionFactory
     * RedisStandaloneConfiguration
     * RedisSentinelConfiguration
     * RedisClusterConfiguration
-2. Lettuce内置支持读写分离LettuceClientConfigurationBuilderCustomizer
+**Lettuce内置支持读写分离LettuceClientConfigurationBuilderCustomizer**
 
 ```java
 @Bean
@@ -949,7 +940,7 @@ public LettuceClientConfigurationBuilderCustomizer customizer() {
 }
 ```
 
-3. RedisTemplate、StringRedisTemplate
+**RedisTemplate、StringRedisTemplate**
 
 ```java
 @Bean
@@ -1044,7 +1035,7 @@ Flux.fromIterable(list) //list是从数据库中查询出来的
             e -> log.error("Exception {}", e.getMessage()));
 ```
 
-### Reactive访问MongoDB
+### 
 1. MongoDB官方提供了支持Reactive的驱动: mongodb-driver-reactivestreams
 2. Spring Data MongoDB中的主要支持
 * ReactiveMongoClientFactoryBean
@@ -1128,7 +1119,7 @@ public class PerformanceAspect {
 #### 输出SQL日志到控制台的简单配置
 ##### HikariCP
 可以使用p6spy打印SQL
-1. 引入依赖
+**引入依赖**
 
 ```yml
 <dependency>
@@ -1138,14 +1129,14 @@ public class PerformanceAspect {
 </dependency>
 ```
 
-2. 修改datasource
+**修改datasource**
 
 ```yml
 spring.datasource.driver-class-name=com.p6spy.engine.spy.P6SpyDriver
 spring.datasource.url=jdbc:p6spy:mysql://localhost:3306/
 ```
 
-3. 添加spy.properties
+**添加spy.properties**
 
 ```yml
 //单行日志
