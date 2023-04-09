@@ -38,6 +38,7 @@ categories: java spring cloud
 * 适合部署在现代云计算平台
 * 将开发和生产环境差异降至最低, 并使用持续交付实现敏捷开发
 * 在工具、架构和开发流程不发生明显变化的前提下实现扩展
+
 #### 12 Factors
 1. 基准代码-一份基准代码，多份部署
 * 使用版本控制系统加以管理
@@ -126,15 +127,16 @@ public interface CoffeeService {
 * 启用okhttp或httpclient支持`feign.okhttp.enabled=true``feign.httpclient.enabled=true`(需要引入相应依赖)
 * 压缩支持`feign.compression.response|request.enabled=true`等等
 
-#### 使用[Zookeeper]作为服务注册中心(https://zookeeper.apache.org/)
-简单、多副本、有序、快
+#### 使用Zookeeper作为服务注册中心
+[Zookeeper](https://zookeeper.apache.org/) 简单、多副本、有序、快
 1. 依赖: `spring-cloud-starter-zookeeper-discovery`
 2. 配置: `spring.cloud.zookeeper.connect-string=localhost:2181`
 3. 通过Docker启动：`docker pull zookeeper``docker run --name zookeeper -p 2181:2181 -d zookeepr`
 4. 启动项目后,使用`docker exec -it zookeeper bash`进入zookeeper,并使用zk client `./zkCli.sh`命令连上zookeeper
 5. 使用`ls /services` 查看注册的项目, 进入项目目录查看注册的节点信息
 
-#### 使用[Consul]作为服务注册中心(https://developer.hashicorp.com/consul)
+#### 使用Consul作为服务注册中心
+[Consul](https://developer.hashicorp.com/consul)
 1. 关键特性:服务发现、健康检查、KV存储、多数据中心支持、安全的服务间通信
 2. 好用的功能: HTTP API、DNS(xxx.service.consul)、与Nginx联动
 3. 简单实践
@@ -143,8 +145,8 @@ public interface CoffeeService {
 * 通过Docker启动: `docker pull consul``docker run --name consul -d -p 8500:8500 -p 8600:8600/udp consul`
 * 通过consul的ui界面查看注册信息
 
-#### 使用[Nacos]作为服务注册中心(https://nacos.io/zh-cn/)
-一个更易于构建云原生应用的动态服务发现、配置管理和服务管理平台
+#### 使用Nacos作为服务注册中心
+[Nacos](https://nacos.io/zh-cn/)一个更易于构建云原生应用的动态服务发现、配置管理和服务管理平台
 1. 功能: 动态服务配置、服务发现和管理、动态DNS服务
 2. 简单实践
 * 依赖: `spring-cloud-alibaba-dependencies``spring-cloud-starter-alibaba-nacos-discovery`

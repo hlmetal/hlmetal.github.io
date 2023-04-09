@@ -271,6 +271,7 @@ Spring Cloud Config在分布式系统中，提供外置配置支持
 5. 配置刷新: zookeeper自动监听节点值的变化
 6. 通过ZookeeperConfigBootstrapConfiguration注册ZookeeperPropertySourceLocater提供ZookeeperPropertySource
 7. 通过ZookeeperConfigAutoConfiguration注册ConfigWatcher监听配置更新
+
 ```java
 //在Zookeeper中创建配置节点和数据
 create /config/product-service,dev/order.discount 70

@@ -167,9 +167,10 @@ public class OrderListener {
 * `spring.cloud.stream.kafka.bindings.<channelName>.consumer.*`
 * `spring.kafka.*`
 3. 通过Docker启动, kafka启动需要依赖zookeeper,根据官方指引, 需配置`docker-compose.yml`, 然后使用`docker-compose up -d`启动
+
 ```java
 ---
-version: '2'
+version: 2
 services:
   zookeeper:
     image: zookeeper:latest

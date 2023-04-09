@@ -164,9 +164,6 @@ spring.thymeleaf.suffix=.html
 3. 简单示例
 
 ```java
-<html xmlns:th="http://www.thymeleaf.org">
-<body>
-<h2>User Information</h2>
 <table>
     <thead>
     <tr>
@@ -181,8 +178,6 @@ spring.thymeleaf.suffix=.html
     </tr>
     </tbody>
 </table>
-</body>
-</html>
 
 @ModelAttribute
 public List<User> userList() {

@@ -334,7 +334,6 @@ Meter
 * /acutator/metrics
 * /acutator/prometheus
 2. 一些配置项
-
 ```java
 management.metrics.export.*
 management.metrics.tags.*
@@ -342,7 +341,6 @@ management.metrics.enabled.*
 management.metrics.distribution.*
 management.metrics.web.server.auto-time-requests
 ```
-
 3. 核心度量项
 * JVM
 * CPU
@@ -392,6 +390,7 @@ management.metrics.web.server.auto-time-requests
 * undertow
 * reactor-netty
 
+
 #### 端口
 * `server.prot`
 * `server.address`
@@ -432,6 +431,7 @@ server.error.whitelable.enabled=true
 server.use-forward-headers
 server.servlet.session.timeout
 ```
+
 
 #### 编程方式修改配置
 实现`WebServerFactoryCustomizer<T>`接口
@@ -611,7 +611,7 @@ MANIFEST.MF中的Main-Class: org.springframework.boot.loader.JarLauncher会找�
 * USER  设置运行的用户
 
 #### 通过Maven构建Docker镜像
-1. 提供一个Dockerfile
+* 提供一个Dockerfile
 
 ```java
 FROM java:8
@@ -621,7 +621,7 @@ ADD target/${JAR_FILE} /hualan-spring.jar
 ENTRYPOINT ["java", "-jar","/hualan-spring.jar"]
 ```
 
-2. 配置dockerfile-maven-plugin插件
+* 配置dockerfile-maven-plugin插件
 
 ```java
 <plugin>
@@ -647,9 +647,9 @@ ENTRYPOINT ["java", "-jar","/hualan-spring.jar"]
 </plugin>
 ```
 
-3. 执行mvn package 或者mvn dockerfile:build
-4. 检查结果 docker images
-5. 运行`docker run --name hualan-spring -d -p 8080:8080 hualan-spring:0.0.1-SNAPSHOT`
+* 执行mvn package 或者mvn dockerfile:build
+* 检查结果 docker images
+* 运行`docker run --name hualan-spring -d -p 8080:8080 hualan-spring:0.0.1-SNAPSHOT`
 
 
 
