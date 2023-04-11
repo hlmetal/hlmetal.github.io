@@ -100,23 +100,23 @@ HQL的语法与SQL非常类似:
 
 ## 整合SSH
 1. 创建项目
-    - 创建部署描述文件
-    - 引入目标服务器运行环境
-    - 如果创建不了项目, 请检测网络:是否能够访问Maven服务器.
+* 创建部署描述文件
+* 引入目标服务器运行环境
+* 如果创建不了项目, 请检测网络:是否能够访问Maven服务器.
 2. 导入相关的包:
-    - Struts2
-    - Struts2-Spring-plugin
-    - Struts2-json-plugin
-    - Hibernate
-    - MySql jdbc Drvier
-    - dataSource
-    - Spring-orm
-    - Spring-jdbc
-    - JUnit
+* Struts2
+* Struts2-Spring-plugin
+* Struts2-json-plugin
+* Hibernate
+* MySql jdbc Drvier
+* dataSource
+* Spring-orm
+* Spring-jdbc
+* JUnit
 3. 配置
-    - web.xml
-    - struts2
-    - Spring + hibernate
+* web.xml
+* struts2
+* Spring + hibernate
 
 4. 整合具体步骤:
 * 创建项目导入包:

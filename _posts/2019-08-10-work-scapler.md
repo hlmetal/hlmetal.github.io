@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "工作项目约课上游梳理"
+title:  "工作项目-约课上游梳理"
 date:   2019-08-10 15:00:30 +0200
 categories: work
 ---
@@ -111,7 +111,7 @@ categories: work
 7. dino home放心优先约-LP手动触发求课或约课 批量勾选
 8. 多时段同一老师约课
 
-##  cc
+###  cc
 1. 超约入口
 2. 高级约课-mc普通trial/全项进阶
 3. trial换老师
@@ -122,8 +122,7 @@ categories: work
 8. 创建learningprogress
 
 ## 约课系统指南
-<a role="button" class="btn btn-primary hvr-grow-shadow" href="/assets/files/约课系统指南.pdf" target="_blanks">、
-    <span class="flag-icon flag-icon-gb"></span> 点击查看
+<a role="button" class="btn btn-primary hvr-grow-shadow" href="/assets/files/约课系统指南.pdf" target="_blanks"><span class="flag-icon flag-icon-gb"></span> 点击查看
 </a>
 
 

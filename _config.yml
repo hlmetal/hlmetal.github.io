@@ -60,9 +60,13 @@ navs:
     href: /
     label: Home
 
-  -
-    href: /open-source
-    label: Open-Source
+  # -
+  #   href: /open-source
+  #   label: Open-Source
+
+  # -
+  #   href: /openlife
+  #   label: OpenLife
 
   -
     href: /blog
