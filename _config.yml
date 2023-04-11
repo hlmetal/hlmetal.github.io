@@ -77,6 +77,10 @@ navs:
     label: Bookmark
 
   -
+    href: /archive
+    label: Archive
+  
+  -
     href: /about
     label: About
 

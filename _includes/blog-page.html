@@ -1,38 +1,39 @@
+<section class="content container">
 <div class="row">
 
+    <!-- Post List -->
     <div class="col-md-8">
 
-        <!-- Blog list -->
-        <ul id="posts-list">
+        <ol class="post-list">
             {% for post in site.posts %}
-            <li class="posts-list-item" data-title="{{post.title}}">
-                <div class="posts-content">
-                    <span class="posts-list-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
-                    <a class="posts-list-name bubble-float-left" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
-                    <span class='circle'></span>
-                </div>
+            <li class="post-list-item">
+                <h2 class="post-list-title">
+                    <a class="hvr-underline-from-center" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+                </h2>
+                <p class="post-list-description">
+                    {{ post.excerpt | strip_html | strip }}
+                </p>
+                <p class="post-list-meta">
+                    <span class="octicon octicon-calendar"></span> {{ post.date | date: "%Y/%m/%d" }}
+                </p>
             </li>
             {% endfor %}
-        </ul>
+        </ol>
 
         <!-- Pagination -->
-        {% include pagination.html %}
+        <!-- {% include pagination.html %} -->
 
         <!-- Comments -->
         {% include disqus-comments.html %}
 
     </div>
-
     <div class="col-md-4">
         {% include sidebar-post-tag.html %}
     </div>
 
+    <!-- <div class="col-md-4">
+        {% include sidebar-popular-repo.html %}
+    </div> -->
+
 </div>
-<script>
-    $(document).ready(function(){
-
-        // Enable bootstrap tooltip
-        $("body").tooltip({ selector: '[data-toggle=tooltip]' });
-
-    });
-</script>
+</section>
