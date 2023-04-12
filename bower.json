@@ -1,13 +1,4 @@
 {
-  "name": "Yummy-Jekyll",
-  "description": "Jekyll Theme",
-  "main": "",
-  "keywords": [
-    "jekyll"
-  ],
-  "authors": [
-    "DONG Chuan"
-  ],
   "license": "MIT",
   "homepage": "",
   "ignore": [

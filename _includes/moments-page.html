@@ -1,0 +1,240 @@
+<div id="main">
+    <div class="box">
+        <div class="pic"><img src="images/1.jpg" alt=""></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="images/2.jpg" alt=""></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="images/3.jpg" alt=""></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="images/4.jpg" alt=""></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="images/5.jpg" alt=""></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="images/6.jpg" alt=""></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="images/7.jpg" alt=""></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="images/8.jpg" alt=""></div>
+    </div>
+
+    <div class="box">
+        <div class="pic"><img src="images/9.jpg" alt=""></div>
+    </div>
+
+    <div class="box">
+        <div class="pic"><img src="images/10.jpg" alt=""></div>
+    </div>
+
+    <div class="box">
+        <div class="pic"><img src="images/11.jpg" alt=""></div>
+    </div>
+
+    <div class="box">
+        <div class="pic"><img src="images/12.jpg" alt=""></div>
+    </div>
+
+    <div class="box">
+        <div class="pic"><img src="images/13.jpg" alt=""></div>
+    </div>
+
+    <div class="box">
+        <div class="pic"><img src="images/14.jpg" alt=""></div>
+    </div>
+
+    <div class="box">
+        <div class="pic"><img src="images/15.jpg" alt=""></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="images/16.jpg" alt=""></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="images/17.jpg" alt=""></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="images/18.jpg" alt=""></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="images/19.jpg" alt=""></div>
+    </div>
+    <div class="box">
+        <div class="pic"><img src="images/20.jpg" alt=""></div>
+    </div>
+    <div class="box">
+</div>
+<style>
+*{margin:0;padding:0}
+
+#main{
+    margin:15px auto;
+    position: relative;
+}
+.box{
+    padding:15px 0 0 15px;
+    float:left;
+}
+.pic{
+    padding:15px;
+    border:1px solid #ccc;
+    box-shadow: 0 0 5px #ccc;
+    border-radius: 5%;
+}
+.pic img{
+    width:168px;
+}
+</style>
+<script>
+window.onload = function(){
+
+  waterfall("main","box");
+
+  var dataImg = {
+
+      arr:[
+          {"src":"1.jpg"},
+          {"src":"2.jpg"},
+          {"src":"3.jpg"},
+          {"src":"4.jpg"},
+          {"src":"5.jpg"},
+          {"src":"6.jpg"},
+          {"src":"7.jpg"},
+          {"src":"8.jpg"},
+          {"src":"9.jpg"},
+          {"src":"10.jpg"},
+          {"src":"11.jpg"},
+          {"src":"12.jpg"},
+          {"src":"13.jpg"},
+          {"src":"14.jpg"},
+          {"src":"15.jpg"},
+          {"src":"16.jpg"},
+          {"src":"17.jpg"},
+          {"src":"18.jpg"},
+          {"src":"19.jpg"},
+          {"src":"20.jpg"}
+      ]
+
+  }
+
+  window.onscroll = function(){
+
+      if(scrollTop()){
+          for(var i=0;i<dataImg.arr.length;i++){
+              var main = document.getElementById("main");
+
+              var oDiv = document.createElement("div");
+              oDiv.className = "box";
+
+              var oPic = document.createElement("div");
+              oPic.className = "pic";
+
+              var imgs = document.createElement("img");
+              imgs.src = "/assetsimages/"+dataImg.arr[i].src+"";
+
+              main.appendChild(oDiv);
+              oDiv.appendChild(oPic);
+              oPic.appendChild(imgs);
+          }
+      }
+
+      waterfall("main","box");
+
+  }
+}
+function scrollTop(){
+
+  var oBox = getClass("box");
+  var oBoxlast = oBox[oBox.length-1];
+  var top = document.body.scrollTop || document.documentElement.scrollTop;
+  var height = document.body.clientHeight || document.documentElement.clientHeight;
+
+  if(oBoxlast.offsetHeight/2+oBoxlast.offsetTop < top+height){
+        return true;
+  }else{
+        return false;
+  }
+}
+
+function waterfall(parent,box){
+
+  var oParent = document.getElementById(parent);
+  //获取到父节点
+  var oBox = getClass(box);
+  //获取到box子节点
+
+  var width = document.documentElement.clientWidth || document.body.clientWidth;
+  //可视区域的宽度值
+
+  var oBoxWidth = oBox[0].offsetWidth;
+  //获取图片的宽度
+
+  var num = Math.floor(width/oBoxWidth);
+  //获取可视区域，一行能放入几张图片
+
+  oParent.style.width = num*oBoxWidth+"px";
+  //设置父节点的宽度
+
+  var hrr= [];
+  for(var i=0;i<oBox.length;i++){
+
+      if(i<num){
+
+          hrr.push(oBox[i].offsetHeight);
+
+      }else{
+
+
+          var min=Math.min.apply(null,hrr);
+          var index = inArray(hrr,min);
+
+          oBox[i].style.position = "absolute";
+          oBox[i].style.left =  index*oBoxWidth+"px";
+          //设置图片摆放left值  = 最小高度的下标*图片的宽度
+          oBox[i].style.top = min+"px";
+          //设置图片摆放的top值  = 最小值（上面）图片的高度;
+
+          hrr[index] += oBox[i].offsetHeight;
+
+      }
+
+
+  }
+
+  console.log(hrr);
+
+}
+
+function inArray(hrr,min){
+
+  for(var i=0;i<hrr.length;i++){
+
+      if(hrr[i] == min){
+
+          return i;
+      }
+  }
+}
+
+
+function getClass(box){ 
+
+  var doms = document.getElementsByTagName("*");
+  var reg = new RegExp("\\b"+box+"\\b");
+  var arr = [];
+  for(var i=0;i<doms.length;i++){
+
+      if( reg.test( doms[i].className  ) ){
+
+          arr.push(doms[i]);
+
+      }
+
+  }
+  return arr;
+}
+</script>
