@@ -2,17 +2,28 @@
 
     <div class="col-md-8">
 
-        <h2>About me</h2>
+        <h2>About Blog</h2>
 
-        <p>BlaBlaBla BlaBlaBla BlaBlaBla BlaBlaBla BlaBlaBla BlaBlaBla BlaBlaBla BlaBlaBla</p>
+        <p>该Blog主要用于个人学习笔记记录和工作踩坑记录, 偶尔分享生活瞬间&#128048;</p>
 
-        <h2>Contact</h2>
+        <h2>About Me</h2>
+        <p>  陕西商南长大, 西安科技大学毕业的一个普通IT青年, 性格沉稳内敛, 兴趣广泛、喜欢尝试新鲜事物。
+           本科毕业后想缓解父母压力,一心找工作, 后在北京一家独角兽公司工作1年多,
+           认识了形形色色的人, 结交了两三好友, 见识了首都的许多风光, 工作尚可, 生活愉快。
+           后来因种种原因想要提升自身能力，遂选择辞职考研。但是两年考研都没能进入理想院校, 眼看时间流逝、父母压力过大, 我必须选择继续工作。
+           
+             两年来我独自一人起早贪黑, 为梦想奋斗, 但却少了与人沟通交流的机会, 少了锻炼时间, 少了生活气息, 这让我感到些许疲惫。
+           现实告诉我努力固然很重要, 但选择也很重要。即便我未能逐梦成功, 但学习期间仍积累了许多知识和经验, 这仍然是一次有用的经历。
+
+             虽然有两年空窗期, 未能着手项目, 但经过短暂温习, 我仍然能够快速掌握Java开发的各项流程及技术。相信仍然能够为社会做出贡献。
+        </p>
+
+        <h2>Contact Me</h2>
 
         <ul>
             <li>Email：<a href="mailto:{{ site.email }}" target="_top">{{ site.email }}</a></li>
-            <li>GitHub：<a href="{{ site.github_url }}">{{ site.github_url }}</a></li>
         </ul>
-
+        
         <h2>Skill Keywords</h2>
 
         {% if site.skill_software_keywords %}
@@ -28,26 +39,13 @@
         </div>
         {% endif %}
 
-        {% if site.skill_j2ee_keywords %}
+        {% if site.skill_cloud_keywords %}
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">J2EE Developer Keywords</h3>
+                <h3 class="panel-title">Cloud Developer Keywords</h3>
             </div>
             <div class="panel-body">
                 {% for keyword in site.skill_j2ee_keywords %}
-                <button class="btn btn-default" type="button">{{ keyword }}</button>
-                {% endfor %}
-            </div>
-        </div>
-        {% endif %}
-
-        {% if site.skill_mobile_app_keywords %}
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Mobile Developer Keywords</h3>
-            </div>
-            <div class="panel-body">
-                {% for keyword in site.skill_mobile_app_keywords %}
                 <button class="btn btn-default" type="button">{{ keyword }}</button>
                 {% endfor %}
             </div>
@@ -67,6 +65,31 @@
         </div>
         {% endif %}
 
+        {% if site.skill_office_keywords %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Office Keywords</h3>
+            </div>
+            <div class="panel-body">
+                {% for keyword in site.skill_office_keywords %}
+                <button class="btn btn-default" type="button">{{ keyword }}</button>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if site.skill_language_keywords %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Language Keywords</h3>
+            </div>
+            <div class="panel-body">
+                {% for keyword in site.skill_language_keywords %}
+                <button class="btn btn-default" type="button">{{ keyword }}</button>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
     </div>
 
     <!-- <div class="col-md-4">

@@ -95,6 +95,8 @@ analytics :
 
 
 # For about.html. Fell free to create your own!
-skill_software_keywords: [Java, Python, MySQL]
-skill_j2ee_keywords: [Spring, Maven, MyBatis, Struct, Hibernet]
-skill_web_keywords: [Vue, Element, HTML, JS, Redis, NodeJS, MongoDB]
+skill_software_keywords: [Java, MySQL, Redis, Hibernate, Spring Boot, Spring MVC, Maven, MyBatis, Python]
+skill_cloud_keywords: [Docker, Eureka, Zookpeer, Rabbit, Hystrix]
+skill_web_keywords: [Vue, Element, Bootstrap, JQuery, AJAX, HTML, CSS, JS, NodeJS, MongoDB]
+skill_office_keywords: [Word, Excel, PPT, Xmind, ProcessOn, Visio, Omnigraffle]
+skill_language_keywords: [English]
