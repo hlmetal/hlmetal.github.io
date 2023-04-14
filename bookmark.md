@@ -13,7 +13,7 @@ menu: Bookmark
 - [Xstream](http://x-stream.github.io/index.html) - Serialize objects to XML and back again
 - [Lombok](https://projectlombok.org/) - Never write another getter or equals method again
 
-## SaaS
+## Microservice
 - [Eureka](https://docs.spring.io/spring-cloud-netflix/docs/current/reference/html/) - Service discovery. It holds the details on all the Eureka client applications which are registered to it
 - [OpenFeign](https://github.com/OpenFeign/feign) - A Java to HTTP client binder inspired by Retrofit, JAXRS-2.0, and WebSocket 
 - [Zookeeper](https://zookeeper.apache.org/) - An effort to develop and maintain an open-source server which enables highly reliable distributed coordination
