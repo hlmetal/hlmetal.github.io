@@ -24,11 +24,12 @@ Spring入门,及搭建Springboot项目并连接各种数据源，进行数据访
 * 不用生产代码，没有XML配置
 
 #### Spring Cloud
-简化分布式系统的开发
-* 配置管理
-* 服务注册、服务发现、服务追踪
-* 熔断
-* ···
+微服务解决方案, 简化分布式系统的开发
+* 配置管理(Nacos)
+* 服务注册(Eureka)、服务发现、服务追踪
+* 负载均衡(Ribbon)
+* 熔断(Resilience4j)
+* 网关(Zuul)
 
 ### 编写Spring程序
 #### Spring initializr
@@ -327,6 +328,8 @@ TransactionDefinition
 * 可以传入TransactionDefinition进行定义
 
 #### 声明式事务(AOP机制)
+  <img src= "/assets/files/Spring声明式事务.png" alt="加载错误" title="Spring声明式事务"/>
+
 ##### 开启事务的方式
 1. 基于注解的配置方式
 * `@EnableTransactionManagement`
@@ -348,11 +351,20 @@ TransactionDefinition
 * readOnly
 * callback
 
+##### Spring声明式事务何时失效
+1. 方法访问权限必须是public,  private等权限,事务失效
+2. 方法被定义成了final,会导致事务失效
+3. 在同一个类中的方法直接内部调用, 会导致事务失效
+4. 一个方法如果没交给spring管理, 就不会生成 spring事务
+5. 多线程调用, 两个方法不在同一个线程中, 获取到的数据库连接不一样
+6. 数据库存储引擎不支持事务
+7. 如果自己try...catch误吞了异常,事务失效
+8. rollbackFor参数设置错误
+
 ### Spring的JDBC异常抽象
 Spring会将数据操作的异常转换为DataAccessException,无论使用何种数据访问方式,都能使用一样的异常
 1. Spring通过SQLErrorCodeSQLExceptionTranslator类解析错误码
 2. ErrorCode都放在spring-jdbc包下的support/sql-error-codes.xml下,包含了不同数据库的错误码
-
 
 ### 扩展
 #### 一些常用注解
@@ -371,8 +383,6 @@ Spring会将数据操作的异常转换为DataAccessException,无论使用何种
 3. 注入相关注解
 * @Autowired/@Qualifier/@Resource
 * @Value
-
-
 
 ## O/R Mapping实践
 ### Spring Data JPA(Java Persistence API)
@@ -672,7 +682,35 @@ Hyper-V已禁用或Hypervisor代理未运行。docker desktop基于windows hyper
 3. 解决办法
 * 启用Hyper-V `dism.exe /Online /Enable-Feature:Microsoft-Hyper-V /All`
 * 如果Hyper-V 功能已启用但不起作用，需确保其守护进程已自动运行，若未运行则`bcdedit /set hypervisorlaunchtype auto`
-* 上述命令在管理员身份下CMD运行完毕后，重启电脑即可。
+* 上述命令在管理员身份下CMD运行完毕后，重启电脑即可
+
+### NoSQL适用场景
+1. 数据模型比较简单
+2. 需要灵活性更强的数据库
+3. 对数据库性能要求较高
+4. 不需要高度的数据一致性
+5. 对于给定Key比较容易映射复杂值的环境
+
+### 分类
+1. K-V键值数据库: 主要应用于缓存、处理大量数据的高负载访问、记录系统日志. 如Redis、Mecached
+2. 列存储数据库: 主要应用于分布式数据的存储和管理. 如HBase, HadoopDB
+3. 文档数据库: 主要应用于管理半结构化数据或面向文档的数据. 如MongoDB、ES
+
+### 主流NoSQL数据库对比
+1. 如果对数据的读写要求极高, 并且数据规模不大, 也不需要长期存储, 那就选Redis
+2. 如果数据规模较大, 对数据的读性能要求很高, 数据表的结构需要经常变, 有时还需要做一些聚合查询, 那就选
+MongoDB
+3. 如果要构造一个搜索引擎或者要完成一个高大上的数据可视化平台, 并且数据本身也具有分析价值, 就选ES
+4. 如果你要存储海量数据, 而且还不能预估数据规模将来会增长多么大, 那么选HBase
+
+### ES
+一个建立在全文搜索引擎库Lucene基础上的开源搜索和分析引擎. ES本身具有分布式存储、检索速度快的特性.通常会用来实现全文检索的功能. Elastic Stack主要包括ElasticSearch、Logstash、Kibana. 这三个经典组合称之为ELK. ElasticSearch主要用来做数据存储、Logstash主要用来做数据采集、Kibana主要用来做数据可视化展示
+#### ES为什么快
+1. ES是基于Lucene开发的一个全文搜索引擎. 一方面Lucene是擅长管理大量的索引数据;另外一方面,它会对数据进行分词以后再保存索引, 能够去提升数据的检索效率
+2. ES采用倒排索引. 所谓倒排索引就是通过属性值来确定数据记录位置的索引. 从而避免全表扫描的问题
+3. ES存储数据采用分片机制
+4. ES扩展性好, 支持通过水平扩展的方式来动态增加节点. 从而提升ES的处理性能, 能够支持上百台服务器节点的扩展, 并且支持TB级别的结构化数据和非结构化数据
+5. ES内部提供的数据汇总和索引生命周期管理的功能, 更加便于高效地存储和检索数据
 
 ### MongoDB
 #### 什么是[MongDB](https://www.mongodb.com/)
@@ -956,6 +994,10 @@ if (redisTemplate.hasKey(CACHE) && hashOperations.hasKey(CACHE, name)) {
     return Optional.of(hashOperations.get(CACHE, name));
 }
 ```
+
+### HBase
+### ES
+
 
 ## 数据访问进阶
 ### [Project Reactor](https://projectreactor.io/)

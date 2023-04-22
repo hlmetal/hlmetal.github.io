@@ -35,6 +35,37 @@ apache iBatis -> google MyBatis -> Github
 3. 获得Map类型的结果: MyBatis在查询时,会将记录中的数据先存放到一个Map对象上面(以字段名作为key，以字段值作为value),然后再将Map对象中的数据添加到实体对象上。获得Map类型的结果,指的是获得这个Map对象。实际使用中建议还是获得实体对象,这样获得数据更方便
 4. 解决表字段名与实体属性名不一致的情况: 使用别名,将别名设置成与属性名一致或者使用resultMap
 
+
+## 数据分页
+1. 逻辑分页: 先查询出所有的数据缓存到内存, 再根据业务相关需求,从内存数据中筛选出合适的数据
+进行分页
+2. 物理分页: 直接利用数据库支持的分页语法来实现,比如Mysql里面提供了分页关键词Limit
+
+### Mybatis分页
+1. 在Mybatis Mapper配置文件里面直接写分页SQL,这种方式比较灵活,实现简单
+2. RowBounds实现逻辑分页,一次性加载所有符合查询条件的目标数据,根据分页参数值在内存中实现分页
+3. Interceptor拦截器实现, 通过拦截需要分页的select语句, 然后在这个sql语句里面动态拼接分页关
+键字,从而实现分页查询
+4. 插件(PageHelper)等, 本质上也是使用Mybatis的拦截器来实现的
+
+## ${}与#{}区别
+都是实现动态SQL的方式, 通过这两种方式把参数传递到XML之后,在执行操作之前,Mybatis会对这两种占位符进行动态解析
+1. $号相当于直接把参数拼接到了原始的SQL里面, MyBatis不会对它进行特殊处理, 即动态参数, 不能防止SQL注入
+2. #号等同于JDBC里面的?号, 即占位符. 相当于向PreparedStatement预处理语句中设置参数, SQL是预编译的, 如果在设置的参数包含特殊字符,就会自动进行转义. 所以#号占位符可以防止SQL注入
+
+## 二级缓存
+提升数据的检索效率, 避免每次数据的访问都需要去查询数据库
+1. 一级缓存: 它是SqlSession级别的缓存, 也叫本地缓存(SqlSession中的Executor对象有一个LocalCache)
+* 每个用户在执行查询的时候都需要使用SqlSession来执行
+* 为了避免每次都去查数据库, MyBatis把查询出来的数据保存到SqlSession的本地缓存中
+* 后续的SQL如果命中缓存, 就可以直接从本地缓存读取
+2. 二级缓存: 跨SqlSession级别的缓存, 是个全局缓存(对Executor进行了装饰CachingExecutor)
+* 多个用户在查询数据的时候, 只要有任何一个SqlSession拿到了数据就会放入到二级缓存里面, 其他的
+SqlSession就可以从二级缓存加载数据
+* 在进入一级缓存之前, 会先通过CachingExecutor进行二级缓存的查询
+* 二级缓存缓存没有再查一级缓存. 最后则是数据库
+
+
 ## Spring集成MyBatis
 1. 集成方式一(使用Mapper映射器)
     * 导包：srping-webmvc，mybatis，mybatis-spring，ojdbc，dbcp，spring-jdbc，junit

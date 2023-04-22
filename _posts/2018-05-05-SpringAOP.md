@@ -51,3 +51,21 @@ Object obj=cls.getAnnotation(注解类型);
 Object obj=field.getAnnotation(注解类型);
 ```
 ## SpringAOP
+### 创建代理对象
+由Spring代理策略生成的对象
+1. 创建Bean实例都是从getBean()方法开始的, 在实例创建之后,Spring容器将根据AOP的配置去匹配目标类的类名, 看目标类的类名是否满足切面规则
+2. 如果满足满足切面规则, 就会调用ProxyFactory创建代理Bean并缓存到IoC容器中
+3. 根据目标对象的自动选择不同的代理策略
+* 目标类实现了接口, Spring会默认选择JDK Proxy
+* 目标类没有实现接口, Spring会默认选择Cglib Proxy
+
+### 拦截目标对象
+1. 当用户调用目标对象的某个方法时, 将会被一个叫做AopProxy的对象拦截, Spring将所有的调用策略封装到了这个对象中, 它默认实现了InvocationHandler接口,即调用代理对象的外层拦截器
+2. 在这个接口的invoke()方法中, 会触发MethodInvocation的proceed()方法. 在这个方法中会按顺序执行符合所有AOP拦截规则的拦截器链
+
+### 调用代理对象阶段
+1. Spring AOP拦截器链中的每个元素被命名为MethodInterceptor, 其实就是切面配置中的Advice通知
+2. 这个回调通知可以简单地理解为是新生成的代理Bean中的方法, 即被织入的代码片段, 这些代码在这个阶段执行
+
+### 调用目标对象阶段
+MethodInterceptor接口也有一个invoke()方法,在该方法中会触发对目标对象方法的调用

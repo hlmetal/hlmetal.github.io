@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post05
 title:  "项目梳理-库存营销服务"
 date:   2020-02-05 15:00:30 +0200
 categories: work
@@ -10,7 +10,6 @@ categories: work
 ### stock_promotion库
 ### 主要表结构
 1. 库存营销表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -18,7 +17,6 @@ categories: work
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
 	<caption>promotion</caption>
 	<thead>
@@ -101,9 +99,15 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
+* 假设活动属性包括枚举值1,2,3,4,5,6,7,8,9
+* 使用位运算来记录enabled_props_flag是否开启该属性
+* 初始化Long = enabled_props_flag = 0L
+* 假设新建活动中属性包括int value = 1,2,7,9
+* 执行位运算将开启的属性转为二进制表示: enabled_props_flag = enabled_props_flag | (1 << (value - 1))
+* 解析: isEnabled = (flag >> (value - 1) & 1) == 1L; (即上述计算反向操作)
+
 2. 库存属性表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -149,9 +153,8 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
 3. 营销奖励表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -192,9 +195,8 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
 4. 订单营销占用表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -202,7 +204,6 @@ categories: work
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
 	<caption>order_occupation</caption>
 	<thead>
@@ -235,9 +236,8 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
 5. 营销订单奖励生成记录表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -245,7 +245,6 @@ categories: work
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
 	<caption>order_promotion_reward</caption>
 	<thead>
@@ -318,9 +317,8 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
 6. 活动名单基本信息表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -328,7 +326,6 @@ categories: work
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
 	<caption>activity_user_group</caption>
 	<thead>
@@ -366,9 +363,8 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
 7. 活动名单成员信息表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -376,7 +372,6 @@ categories: work
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
 	<caption>activity_user_group_member</caption>
 	<thead>
@@ -414,9 +409,8 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
 8. 用户人群表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -424,7 +418,6 @@ categories: work
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
 	<caption>user_group</caption>
 	<thead>
@@ -482,9 +475,8 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
 9. 用户人群成员表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -492,7 +484,6 @@ categories: work
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
 	<caption>user_group_member</caption>
 	<thead>
@@ -530,9 +521,8 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
 10. 用户人群标签表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -540,7 +530,6 @@ categories: work
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
 	<caption>user_group_tag</caption>
 	<thead>
@@ -578,9 +567,8 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
 11. 用户标签元数据表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -588,7 +576,6 @@ categories: work
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
 	<caption>user_tag_meta</caption>
 	<thead>
@@ -631,9 +618,8 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
 12. 老师标签信息表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -641,7 +627,6 @@ categories: work
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
 	<caption>teacher_tag</caption>
 	<thead>
@@ -679,9 +664,8 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
 13. 老师原生数据表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -689,7 +673,6 @@ categories: work
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
 	<caption>raw_teacher</caption>
 	<thead>
@@ -757,9 +740,8 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
 14. 分类老师
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -767,7 +749,6 @@ categories: work
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
 	<caption>in_classify_teacher</caption>
 	<thead>
@@ -800,9 +781,8 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
 15. 老师能量石活动表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -810,7 +790,6 @@ categories: work
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
 	<caption>taecher_activity</caption>
 	<thead>
@@ -948,9 +927,8 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
 16. 子活动信息表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -958,7 +936,6 @@ categories: work
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
 	<caption>teacher_activity_session</caption>
 	<thead>
@@ -1096,9 +1073,8 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
 17. 营销额度表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -1106,7 +1082,6 @@ categories: work
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
 	<caption>promotion_limit</caption>
 	<thead>
@@ -1139,9 +1114,8 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
 18. 营销满额老师表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -1149,7 +1123,6 @@ categories: work
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
 	<caption>promotion_limited_teacher</caption>
 	<thead>
@@ -1197,9 +1170,8 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
 19. 奖励结算规则表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -1207,7 +1179,6 @@ categories: work
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
 	<caption>promotion_reward_settlement</caption>
 	<thead>
@@ -1245,9 +1216,8 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
 20. 奖励结算记录表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -1255,7 +1225,6 @@ categories: work
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
 	<caption>order_promotion_reward_settlement</caption>
 	<thead>
@@ -1313,9 +1282,8 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
 21. 活动报名表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -1323,7 +1291,6 @@ categories: work
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
 	<caption>teacher_activity_enrollment</caption>
 	<thead>
@@ -1361,9 +1328,8 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
 22. 用户id上传记录表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -1371,7 +1337,6 @@ categories: work
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
 	<caption>upload_record</caption>
 	<thead>
@@ -1404,9 +1369,8 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
 23. 券活动规则表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -1414,7 +1378,6 @@ categories: work
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
 	<caption>coupon_rule</caption>
 	<thead>
@@ -1532,9 +1495,8 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
 24. 券规则属性
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -1542,7 +1504,6 @@ categories: work
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
 	<caption>coupon_rule_property</caption>
 	<thead>
@@ -1585,9 +1546,8 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
 25. 券活动奖励
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -1595,7 +1555,6 @@ categories: work
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
 	<caption>coupon_rule_reward</caption>
 	<thead>
@@ -1633,9 +1592,8 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
 26. 营销交易表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -1643,7 +1601,6 @@ categories: work
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
 	<caption>coupon_rule_reward</caption>
 	<thead>
@@ -1691,9 +1648,8 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
 27. 营销交易属性表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -1701,7 +1657,6 @@ categories: work
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
 	<caption>deal_property</caption>
 	<thead>
@@ -1739,9 +1694,8 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
 28. 营销交易资源表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -1749,7 +1703,6 @@ categories: work
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
 	<caption>deal_resource</caption>
 	<thead>
@@ -1792,9 +1745,8 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
 29. 券活动规则设置表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -1802,7 +1754,6 @@ categories: work
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
 	<caption>coupon_rule_setting</caption>
 	<thead>
@@ -1845,9 +1796,8 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
 30. 广告位表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -1855,7 +1805,6 @@ categories: work
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
 	<caption>ad_slot</caption>
 	<thead>
@@ -1913,7 +1862,7 @@ categories: work
 		</tr>
 	</tbody>
 </table>
-```
+
 31. 其他表, 包括操作日志表、上传文件表、上传文件数据表等
 
 ## 核心功能

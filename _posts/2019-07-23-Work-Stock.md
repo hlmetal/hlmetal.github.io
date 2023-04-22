@@ -13,7 +13,6 @@ STOCK项目梳理, 主要针对现有功能、库表等进行梳理
 ### stock库
 ### 主要表结构
 1. 老师时间库存
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -21,7 +20,6 @@ STOCK项目梳理, 主要针对现有功能、库表等进行梳理
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
 	<caption>stock</caption>
 	<thead>
@@ -79,9 +77,8 @@ STOCK项目梳理, 主要针对现有功能、库表等进行梳理
 		</tr>
 	</tbody>
 </table>
-```
+
 2. 订单库存关系
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -89,9 +86,8 @@ STOCK项目梳理, 主要针对现有功能、库表等进行梳理
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
-	<caption>stock</caption>
+	<caption>order_stock_relation</caption>
 	<thead>
 		<tr>
 			<th>主要字段</th>
@@ -127,9 +123,8 @@ STOCK项目梳理, 主要针对现有功能、库表等进行梳理
 		</tr>
 	</tbody>
 </table>
-```
+
 3. 库存定向表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -137,9 +132,8 @@ STOCK项目梳理, 主要针对现有功能、库表等进行梳理
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
-	<caption>stock</caption>
+	<caption>stock_target</caption>
 	<thead>
 		<tr>
 			<th>主要字段</th>
@@ -185,9 +179,8 @@ STOCK项目梳理, 主要针对现有功能、库表等进行梳理
 		</tr>
 	</tbody>
 </table>
-```
+
 4. 订单库存占用表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -195,9 +188,8 @@ STOCK项目梳理, 主要针对现有功能、库表等进行梳理
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
-	<caption>stock</caption>
+	<caption>order_occupation</caption>
 	<thead>
 		<tr>
 			<th>主要字段</th>
@@ -233,9 +225,8 @@ STOCK项目梳理, 主要针对现有功能、库表等进行梳理
 		</tr>
 	</tbody>
 </table>
-```
+
 5. 库存属性表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -243,9 +234,8 @@ STOCK项目梳理, 主要针对现有功能、库表等进行梳理
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
-	<caption>stock</caption>
+	<caption>stock_prop</caption>
 	<thead>
 		<tr>
 			<th>主要字段</th>
@@ -281,9 +271,8 @@ STOCK项目梳理, 主要针对现有功能、库表等进行梳理
 		</tr>
 	</tbody>
 </table>
-```
+
 6. 库存快照表
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -291,9 +280,8 @@ STOCK项目梳理, 主要针对现有功能、库表等进行梳理
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
-	<caption>stock</caption>
+	<caption>stock_snapshot</caption>
 	<thead>
 		<tr>
 			<th>主要字段</th>
@@ -334,9 +322,8 @@ STOCK项目梳理, 主要针对现有功能、库表等进行梳理
 		</tr>
 	</tbody>
 </table>
-```
+
 7. 库存最新快照
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -344,9 +331,8 @@ STOCK项目梳理, 主要针对现有功能、库表等进行梳理
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
-	<caption>stock</caption>
+	<caption>stock_current_snapshot</caption>
 	<thead>
 		<tr>
 			<th>主要字段</th>
@@ -372,9 +358,8 @@ STOCK项目梳理, 主要针对现有功能、库表等进行梳理
 		</tr>
 	</tbody>
 </table>
-```
+
 8. 事务回滚
-```html
 <head>
 	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -382,9 +367,8 @@ STOCK项目梳理, 主要针对现有功能、库表等进行梳理
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <table class="table table-bordered table-striped">
-	<caption>stock</caption>
+	<caption>rollback_action</caption>
 	<thead>
 		<tr>
 			<th>主要字段</th>
@@ -425,7 +409,6 @@ STOCK项目梳理, 主要针对现有功能、库表等进行梳理
 		</tr>
 	</tbody>
 </table>
-```
 
 ### 核心功能
 1. 创建库存

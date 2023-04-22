@@ -24,7 +24,7 @@ categories: java spring cloud
 3. 部署、监控等诸多运维复杂性
 
 ## Cloud Native(云原生)
-云原生技术有利于各组织在公有云、私有云和混合云等新型动态环境中，构建和运行可弹性扩展的应用。
+云原生技术有利于各组织在公有云、私有云和混合云等新型动态环境中，构建和运行可弹性扩展的应用
 ### Cloud Native的要求
 1. DevOps: 开发和运维一同致力于交付高品质的软件服务于客户
 2. 持续交付: 软件的构建、测试、发布等, 要更快、更频发、更稳定
@@ -82,8 +82,15 @@ categories: java spring cloud
 8. 各种云平台支持
 
 ### 服务注册与发现
-#### Eureka注册服务
+#### Eureka
 Eureka是在AWS上定位服务的REST服务,发布在Spring Cloud Netflix工程里
+##### Eureka集群
+Eureka的集群部署采用的是两两相互注册的方式来实现，也就是说每个Eureka Server节点都需要发现集群中的其他节点并建立连接，然后通过心跳的方式来维持这个连接的状态. 不存在主从节点,任何一个节点都可以接收或者写入数据,一旦集群中的任意一个节点接收到了数据的变更, 就直接同步到其他节点上. 
+1. Eureka集群采用的是AP模型,只提供高可用保障,不提供数据强一致性保障
+2. Eureka作为注册中心它只是维护服务之间的通信地址, 数据是否一致对于服务之间的通信影响并不大
+3. Eureka的这种集群部署方式, 需要区分数据是从客户端发来的还是集群中其他节点发来的同步数据.Eureka使用了一个**时间戳标记**来实现类似于数据的版本号来解决这个问题
+
+##### 应用
 1. 本地启动简单的Eureka服务
 * 引入依赖: `spring-cloud-dependencies``spring-cloud-starter-netflix-eureka-server`
 * 声明: `@EnableEurekaServer`
@@ -95,6 +102,9 @@ Eureka是在AWS上定位服务的REST服务,发布在Spring Cloud Netflix工程�
 3. Bootstrap属性: 启动引导阶段加载的属性(bootstrap.properties|yml)
 * spring.cloud.bootstrap.name=bootstrap可以修改bootstrap.properties|yml的文件名
 * 常用配置: spring.application.name=应用名以及配置中心相关
+
+
+
 
 #### Loadbalancer访问服务
 1. 获取服务地址: EurekaClient.getNextServerFromEureka()或DiscoveryClient.getInstances()(spring cloud提供,建议使用)
