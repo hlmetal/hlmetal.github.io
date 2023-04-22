@@ -247,7 +247,7 @@ Bootstrap ClassLoader <- Extension ClassLoader <- Application ClassLoader <- 自
 
 ## JMM(Java内存模型)——并发
 线程和主内存之间的抽象关系, JMM中定义了JVM在计算机内存中的工作方式, 也即JMM是抽象, JVM是实现
-   <img src= "/assets/files/Java内存模型.png" alt="加载错误" title="Java内存模型"/>
+   <img src= "/assets/files/Java内存模型.jpg" alt="加载错误" title="Java内存模型"/>
 
 * 线程之间的共享变量存储在主内存中
 * 每个线程都有一个私有的本地内存(JMM的一个抽象概念,并不真实存在). 它涵盖了缓存、写缓冲区、寄存器以及其他的硬件和编译器优化, 本地内存中存储了该线程以读/写共享变量的拷贝副本
@@ -313,7 +313,6 @@ public class PossibleReordering {
 </head>
 <body>
 <table class="table table-bordered table-striped">
-	<caption>MQ技术选型</caption>
 	<thead>
 		<tr>
             <th>屏障类型</th>
@@ -345,6 +344,8 @@ public class PossibleReordering {
 	</tbody>
 </table>
 
+</br>
+
 ### Happens-before
 在多线程环境下, 因指令重排序的存在会导致数据的可见性问题即线程1修改某个共享变量对线程2不可见. happen-before提供**跨越线程的内存可见性保证**. 并不表示指令执行的先后顺序, 也就是说只要不对结果产生影响,仍然允许指令的重排序
 * 程序顺序规则: 一个线程内执行的每个操作,都保证先于后面的操作
@@ -373,7 +374,6 @@ public class PossibleReordering {
 ### 泛型
 ### 反射
 ### lambda
-   <img src= "/assets/files/to_be_supplemented.png" alt="加载错误" title="有待补充"/>
 
 ## 性能分析
 ### 后台服务变慢如何诊断

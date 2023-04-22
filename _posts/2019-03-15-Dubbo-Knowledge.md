@@ -1,10 +1,11 @@
 ---
 layout: post
 title: Dubbo基础
+date:   2019-03-15 15:25:35 +0200
 category: java rpc distributed
 ---
 
-Dubbo
+简单了解Dubbo
 
 ## Dubbo简介
 Dubbo是一款高性能、轻量级的开源RPC框架. 它提供了分布式架构下的服务之间通信方案,使得开发者可以不需要关心网络通信的细节. 通过该框架可以使得远程服务调用方式和本地服务调用方式一样简单
@@ -29,7 +30,7 @@ Goole的gRPC、Facebook的Thrift、Alibaba的Dubbo
  
 ### 十层模式
 Dubbo由10层模式构成,整个分层依赖由上至下
- <img src= "/assets/files/Dubbo十层模式.png" alt="加载错误" title="Dubbo十层模式"/>
+ <img src= "/assets/files/Dubbo十层模式.jpg" alt="加载错误" title="Dubbo十层模式"/>
 
 1. 第一层的Business业务逻辑层由自己来提供接口和实现还有一些配置信息
 2. 第二层的RPC调用的核心层负责封装和实现整个RPC的调用过程、负载均衡、集群容错、代理等核心功能
@@ -107,11 +108,7 @@ Dubbo的注册中心挂了之后, 服务之间还是可以继续通信的. 主�
 ## Dubbo与Spring Cloud区别
 #### 产生背景
 1. Dubbo是SOA时代的产物,它的关注点主要在于服务的调用、流量分发、流量监控和熔断
-2. 1. Spring Cloud诞生于微服务架构时代, 考虑的是微服务治理的方方面面.依托于Spirng、Spirng Boot优势
-
-#### 架构
-1. 
-2. 
+2. Spring Cloud诞生于微服务架构时代, 考虑的是微服务治理的方方面面.依托于Spirng、Spirng Boot优势
 
 #### 核心要素
 1. 在开发过程中Dubbo需要通过实现各种Filter来做定制, 开发成本以及技术难度略高

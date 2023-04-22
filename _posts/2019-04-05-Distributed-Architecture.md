@@ -139,9 +139,6 @@ categories: 分布式架构
 8. 分布式锁
 
 #### 补偿事务
-保持一致性ACID/BASE
-  <img src= "/assets/files/to_be_supplemented.png" alt="加载错误" title="有待补充"/>
-
 #### 重试设计
 * 判断什么情况下需要重试，例如，调用超时、被调用端返回了某种可以重试的错误; 业务级的错误（如没有权限、或是非法数据等错误），技术上的错误等就不必重试
 * 需要有个重试的最大值，经过一段时间不断的重试后，就没必要再重试了，应该报故障
@@ -289,8 +286,6 @@ Nginx、LVS、HAProxy等
 
 #### 异步处理
 事件驱动、事件溯源
- <img src= "/assets/files/to_be_supplemented.png" alt="加载错误" title="有待补充"/>
-
 #### 数据库扩展
 * 读写分离CQRS:Command(增、删、改)/Query(查)
 * 分库分表
@@ -367,22 +362,20 @@ Nginx、LVS、HAProxy等
 云原生分布式消息流平台, 它集消息、存储、轻量化函数式计算为一体
 #### 特性
 1. 云原生架构
-Pulsar采用计算与存储分离的云原生架构. 数据从Broker搬离, 存在共享存储内部. 上层是无状态Broker复制消息分发和服务; 下层是持久化的存储Bookie集群. Pulsar存储是分片的, 这种构架可以避免扩容时受限制,实现数据的独立扩展和快速恢复
+* Pulsar采用计算与存储分离的云原生架构. 数据从Broker搬离, 存在共享存储内部. 上层是无状态Broker复制消息分发和服务; 下层是持久化的存储Bookie集群. Pulsar存储是分片的, 这种构架可以避免扩容时受限制,实现数据的独立扩展和快速恢复
 2. 跨区域大集群
-大集群就是跨机房、跨地域的集群. 使得Pulsar的分布式能力不局限于某个机房
+* 大集群就是跨机房、跨地域的集群. 使得Pulsar的分布式能力不局限于某个机房
 3. 多租户模式
-Pulsar是一个多租户系统. 租户可以跨集群分布, 每个租户都可以有单独的认证和授权机制. 租户也是存储配额、消息TTL和隔离策略的管理单元
+* Pulsar是一个多租户系统. 租户可以跨集群分布, 每个租户都可以有单独的认证和授权机制. 租户也是存储配额、消息TTL和隔离策略的管理单元
 4. 统一的存储模型
-Pulsar提供了统一的消息存储模型, 支持对主流的消息中间件的兼容和接入
+* Pulsar提供了统一的消息存储模型, 支持对主流的消息中间件的兼容和接入
 5. 统一的消费模型
-Pulsar提供统一的消费模型. 一共支持四种消费模式:独占模式(Exclusive)、灾备模式(Failover)、共享订阅(Shared)、键共享订阅(Key_Shared)
+* Pulsar提供统一的消费模型. 一共支持四种消费模式:独占模式(Exclusive)、灾备模式(Failover)、共享订阅(Shared)、键共享订阅(Key_Shared)
 6. 分片流
-Pulsar将无界的数据看作是分片的流, 分片分散存储在分层存储(Tiered Storage)、BookKeeper集群
-和Broker节点上, 而对外提供一个统一的、无界数据的视图
+* Pulsar将无界的数据看作是分片的流, 分片分散存储在分层存储(Tiered Storage)、BookKeeper集群和Broker节点上, 而对外提供一个统一的、无界数据的视图
 7. 跨地域复制
-Pulsar中的跨地域复制是将Pulsar中持久化的消息在多个集群间备份. 在Pulsar2.x中新增了复制订阅模式, 在某个集群失效情况下, 这个功能可以在其他集群恢复消费者的消费状态, 从而达到热备模式下消息服务的高可用
+* Pulsar中的跨地域复制是将Pulsar中持久化的消息在多个集群间备份. 在Pulsar2.x中新增了复制订阅模式, 在某个集群失效情况下, 这个功能可以在其他集群恢复消费者的消费状态, 从而达到热备模式下消息服务的高可用
 8. IO连接器
-Pulsar IO支持非常多数据流的连接集成操作. 例如HDFS 、Spark、Flink 、Flume 、ES 、HBase、MySQL、Redis、MongoDB、Kafka、RocketMQ、Rabbit、ActiveMQ、Netty等
+* Pulsar IO支持非常多数据流的连接集成操作. 例如HDFS 、Spark、Flink 、Flume 、ES 、HBase、MySQL、Redis、MongoDB、Kafka、RocketMQ、Rabbit、ActiveMQ、Netty等
 9. 轻量级计算框架
-Pulsar可以给用户提供一个部署简单、运维简单、API 简单的FASS(Function as a service)平台. 对复
-杂的大数据处理框架的有力补充
+* Pulsar可以给用户提供一个部署简单、运维简单、API 简单的FASS(Function as a service)平台. 对复杂的大数据处理框架的有力补充

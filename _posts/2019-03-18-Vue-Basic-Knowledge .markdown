@@ -52,7 +52,7 @@ Vue使用了**MVVM**模型，实现数据与视图的双向绑定，通过视图
 * 虚拟DOM可以跟踪状态变化，并通过比较前后两次状态差异更新真实的DOM,通过间接操作DOM，使得开发过程更加关注在业务代码的实现，而不需要关注如何操作DOM，从而提高开发效率。
 
 ## Vue实例生命周期
-![](https://v2.cn.vuejs.org/images/lifecycle.png)
+![](https://v2.cn.vuejs.org/images/lifecycle.jpg)
 * beforeCreate执行时，data，methods中都还没初始化
 * created执行时，data和methods已经被初始化完成
 * beforeMount(模板挂载到页面上之前)，此时模板已经编译完成，但尚未渲染到页面中

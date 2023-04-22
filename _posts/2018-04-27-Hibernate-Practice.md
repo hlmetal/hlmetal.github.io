@@ -6,7 +6,7 @@ categories: database jdbc
 ---
 
 ## Hibernate体系结构
-<img src= "/assets/files/hibernate.png" alt="加载错误" title="hibernate体系结构" />
+<img src= "/assets/files/hibernate.jpg" alt="加载错误" title="hibernate体系结构" />
 
 ## 使用Hibernate
 Hibernate Session可以实现CRUD功能
@@ -378,7 +378,7 @@ Hibernate 为了自动化的处理ORM, 设计了对象持久状态管理。
     - Hibernate4 需要利用 session.flush 手动执行更新功能
 3. 游离状态: 是指持久状态的对象, 被从session缓存中清除, 这时候更新对象的属性不再影响数据库, 可以利用 session.update方法使对象返回到持久状态.
     - session.evict() session.clear() 可将对象从session清除, 使对象变成游离状态.
-<img src= "/assets/files/hbm.png" alt="加载错误" title="hibernate生命周期" />
+<img src= "/assets/files/hbm.jpg" alt="加载错误" title="hibernate生命周期" />
 
 ## ValueStack
 Struts2 用于共享数据的存储结构. 在整个Struts请求期间共享数据.包含两个区域:

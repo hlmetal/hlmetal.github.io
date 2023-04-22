@@ -329,7 +329,6 @@ Http协议本身是一个无状态协议. 基于服务端的session存储机制,
 	</tbody>
 </table>
 
-## Http协议的无状态
 
 ## HTTP请求流程(从浏览器输入url到显示页面的过程)
 1. DNS解析查找域名对应的ip地址
@@ -412,6 +411,8 @@ Http协议本身是一个无状态协议. 基于服务端的session存储机制,
 		</tr>
 	</tbody>
 </table>
+
+</br>
 
 ## HTTPS流程
   <img src= "/assets/files/HTTPS原理.jpg" alt="加载错误" title="HTTPS原理"/>

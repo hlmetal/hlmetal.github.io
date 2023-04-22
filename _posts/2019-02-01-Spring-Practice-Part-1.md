@@ -328,7 +328,7 @@ TransactionDefinition
 * 可以传入TransactionDefinition进行定义
 
 #### 声明式事务(AOP机制)
-  <img src= "/assets/files/Spring声明式事务.png" alt="加载错误" title="Spring声明式事务"/>
+  <img src= "/assets/files/Spring声明式事务.jpg" alt="加载错误" title="Spring声明式事务"/>
 
 ##### 开启事务的方式
 1. 基于注解的配置方式

@@ -306,6 +306,8 @@ Innodb支持外键, MyISAM不支持
 	</tbody>
 </table>
 
+</br>
+
 #### 规则
 1. 如果事务ID trx_id < min_limit_id, 表明生成该版本的事务在生成Read View前, 已经提交, 所以该版本可以被当前事务访问
 2. 如果trx_id>= max_limit_id,表明生成该版本的事务在生成Read View后才生成,所以该版本不可以被当前事务访问
@@ -315,8 +317,6 @@ Innodb支持外键, MyISAM不支持
 * 如果m_ids不包含trx_id, 则说明你这个事务在Read View生成之前就已经提交了, 当前事务能看见
 
 ## LBCC(基于锁的并发控制)
-
-
 
 ##  高并发下如何保证安全的修改同一行数据
 ### 悲观锁

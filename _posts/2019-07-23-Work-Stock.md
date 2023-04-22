@@ -410,6 +410,8 @@ STOCK项目梳理, 主要针对现有功能、库表等进行梳理
 	</tbody>
 </table>
 
+</br>
+
 ### 核心功能
 1. 创建库存
 * controller: 参数校验-> Build对象->调service->记录操作日志->返回信息

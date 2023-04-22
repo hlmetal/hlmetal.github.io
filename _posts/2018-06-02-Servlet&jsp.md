@@ -29,7 +29,7 @@ servlet是sun(oracle)公司制定的一种用来扩展web服务器功能的组�
 4. web服务器创建servlet对象，然后调用该对象service方法处理请求（在service方法中可以通过request对象获取请求数据包中的数据，同时将处理结果写到response对象里）
 5. web服务器将response对象中的数据取出，打包（按照http协议创建响应数据包），然后发送给浏览器
 6. 浏览器拆包，（按http协议要求，将响应数据包中数据解析），然后生成相应的页面。
- <img src= "/assets/files/servlet.png" alt="加载错误" title="servlet运行"/>
+ <img src= "/assets/files/servlet.jpg" alt="加载错误" title="servlet运行"/>
 
 ### 常见错误及解决方式
 1. 404：地址写错或没有部署
@@ -210,7 +210,7 @@ removeAttribute(String name)
 servlet规范当中定义的一种特殊的组件，servlet容器在收到请求之后，会先调用过滤器，再调用servlet。
 1. 在java类中实现Filter接口，在doFilter方法中编写处理逻辑，然后在web.xml中配置过滤器。
 2. 过滤器的优先级：如果有多个过滤器都满足拦截要求，容器会依据`<filter-mapping>`配置的先后顺序来执行
- <img src= "/assets/files/Filter.png" alt="加载错误" title="过滤器"/>
+ <img src= "/assets/files/Filter.jpg" alt="加载错误" title="过滤器"/>
 
 ### 监听器
 servlet规范当中定义的一种特殊组件，用来监听容器产生的事件并进行处理；
@@ -227,7 +227,7 @@ servlet规范当中定义的一种特殊组件，用来监听容器产生的事�
     * 唯一性：一个web应用对应一个servlet上下文；
     * 持久性：容器只要没有关闭或应用没有被卸载则servlet上下文会一直存在
 * 如何获得上下文对象：GenericServlet,HttpSession,ServletConfig,FilterConfig提供了getServletContext()来获得上下文
- <img src= "/assets/files/Listener.png" alt="加载错误" title="监听器"/>
+ <img src= "/assets/files/Listener.jpg" alt="加载错误" title="监听器"/>
 
  4. 作用
 * 绑定数据：setAttribute,getAttribute,removeAttribute

@@ -48,7 +48,7 @@ kramdown:
   enable_coderay: true
 
 # Disque
-disque: https://www-hldmetal-com.disqus.com # ex. httpdongchuangithubio.disqus.com
+disque: https://www-hldmetal-com.disqus.com
 
 # Pagination
 paginate: 10

@@ -5,6 +5,8 @@ date:   2020-08-10 15:00:30 +0200
 categories: work
 ---
 
+约课服务主要用于支持各端的约课请求. 其下游包括stock、stock-promotion.
+
 ## 约课上游
 ### 家长端
 #### pc

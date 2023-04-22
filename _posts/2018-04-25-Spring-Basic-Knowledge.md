@@ -103,7 +103,7 @@ Spring3.x以后, 提供@Configuration注解去声明一个配置类,然后使用
     * 如果使用@Resource注解根据名词实现依赖注入,在IOC容器里面得到的实例对象是User1,于是Spring把User1这个实例赋值给User2,就会提示类型不匹配错误
 
 ### 配置属性
- <img src= "/assets/files/SpringBean配置属性.png" alt="加载错误" title="SpringBean配置属性"/>
+ <img src= "/assets/files/SpringBean配置属性.jpg" alt="加载错误" title="SpringBean配置属性"/>
 
 ### @Resource和@Autowired的区别
 1. 内部定义的参数不同
@@ -140,7 +140,7 @@ Spring3.x以后, 提供@Configuration注解去声明一个配置类,然后使用
 3. 第三级缓存, 存放Bean工厂对象, 用来生成原始Bean对象并放入到二级缓存中
 
 假设BeanA和BeanB存在循环依赖,那么在三级缓存的设计下:
- <img src= "/assets/files/Spring循环依赖解决.png" alt="加载错误" title="Spring循环依赖解决"/>
+ <img src= "/assets/files/Spring循环依赖解决.jpg" alt="加载错误" title="Spring循环依赖解决"/>
 
 1. 初始化BeanA, 先把BeanA实例化, 然后把BeanA包装成ObjectFactory对象保存到第三级缓存中
 2. 接着BeanA开始对属性BeanB进行依赖注入, 于是开始初始化BeanB(创建BeanB实例,并加入到第三级缓存)
@@ -183,33 +183,33 @@ Spring里面的核心功能是IOC容器, 其本质上是一个Bean的容器或�
 2. 在类中定义ThreadLocal的成员变量, 并将需要的可变成员变量保存在ThreadLocal中
 
 ### Spring中Bean的生命周期
- <img src= "/assets/files/SpringBean生命周期1.png" alt="加载错误" title="SpringBean生命周期1"/>
+ <img src= "/assets/files/SpringBean生命周期1.jpg" alt="加载错误" title="SpringBean生命周期1"/>
 
 * 创建前准备阶段
 这个阶段主要是Bean在开始加载之前, 需要从上下文和相关配置中解析并查找Bean有关的扩展实现. 比如`init-method`在初始化bean时调用的方法、`destory-method`在销毁bean时调用的方法、`BeanFactoryPostProcessor`这类的bean加载过程中的前置和后置处理
 
- <img src= "/assets/files/SpringBean生命周期2.png" alt="加载错误" title="SpringBean生命周期2"/>
+ <img src= "/assets/files/SpringBean生命周期2.jpg" alt="加载错误" title="SpringBean生命周期2"/>
 
 * 创建实例阶段
 这个阶段主要是通过反射来创建Bean的实例对象, 并且扫描和解析Bean声明的一些属性
 
- <img src= "/assets/files/SpringBean生命周期3.png" alt="加载错误" title="SpringBean生命周期3"/>
+ <img src= "/assets/files/SpringBean生命周期3.jpg" alt="加载错误" title="SpringBean生命周期3"/>
 
 * 依赖注入阶段
 如果被实例化的Bean存在依赖其他Bean对象的情况,则需要对这些依赖bean进行对象注入. 比如`@Autowired``@setter`等依赖注入的配置. 在这个阶段会触发一些扩展的调用, 比如`BeanPostProcessors`
 (用来实现bean初始化前后的扩展回调)、`InitializingBean`中的afterPropertiesSet()给属性赋值)
 
- <img src= "/assets/files/SpringBean生命周期4.png" alt="加载错误" title="SpringBean生命周期4"/>
+ <img src= "/assets/files/SpringBean生命周期4.jpg" alt="加载错误" title="SpringBean生命周期4"/>
 
 * 容器缓存阶段
 这个阶段主要是把Bean保存到IoC容器中缓存起来, 这时Bean就可以被开发者使用了.`init-method`会在这个阶段调用
 
- <img src= "/assets/files/SpringBean生命周期5.png" alt="加载错误" title="SpringBean生命周期5"/>
+ <img src= "/assets/files/SpringBean生命周期5.jpg" alt="加载错误" title="SpringBean生命周期5"/>
 
 * 销毁实例阶段
 当Spring应用上下文关闭时, 该上下文中的所有bean都会被销毁. 如果存在Bean实现了`DisposableBean`接口或配置了`destory-method`属性,会在这个阶段被调用
 
- <img src= "/assets/files/SpringBean生命周期.png" alt="加载错误" title="SpringBean生命周期"/>
+ <img src= "/assets/files/SpringBean生命周期.jpg" alt="加载错误" title="SpringBean生命周期"/>
 
 ### Spring将Bean注入IOC容器的方式
 1. 使用xml的方式来声明Bean的定义, Spring容器在启动的时候会加载并解析这个xml, 把bean装载到IOC容器中
@@ -254,7 +254,7 @@ Starter是启动依赖
 ### MVC(Model View Controller) 模型、视图、控制器
 MVC是一种软件架构模式, 核心思想是将一个软件可以划分成模型, 视图和控制器三种不同类型的模块, 其中, 模型负责封装业务逻辑的处理, 视图负责提供界面(包括数据展现和用户操作界面), 控制器负责协调模型和视图(视图将请求先发送给控制器, 由控制器选择对应的模型来处理；模型将处理结果交给控制器, 由控制器选择对应的视图来展现数据)
 ### 使用MVC
- <img src= "/assets/files/MVC.png" alt="加载错误" title="MVC"/>
+ <img src= "/assets/files/MVC.jpg" alt="加载错误" title="MVC"/>
 
 ### MVC优点
 1. 方便测试(如直接将业务逻辑写在servlet类中, 需要部署才能测试, 而写在java类中可以直接测试)
@@ -292,7 +292,7 @@ SpringMVC是用来简化基于MVC架构的web应用程序的开发,是Spring框�
 3. Controller   处理器
 4. ModelAndView 用于封装处理结果
 5. ViewResolver 视图解析器
- <img src= "/assets/files/SpringMVC.png" alt="加载错误" title="SpringMVC"/> 
+ <img src= "/assets/files/SpringMVC.jpg" alt="加载错误" title="SpringMVC"/> 
 
 #### 编程步骤
 1. 导包: spring-webmvc
@@ -301,7 +301,7 @@ SpringMVC是用来简化基于MVC架构的web应用程序的开发,是Spring框�
 4. Controller类
 5. jsp
 6. 配置HandlerMapping和ViewResolver
- <img src= "/assets/files/SpringMVC_process.png" alt="加载错误" title="SpringMVC处理过程"/> 
+ <img src= "/assets/files/SpringMVC_process.jpg" alt="加载错误" title="SpringMVC处理过程"/> 
 
 #### 基于注解的springMVC应用
 1. 导包: spring-webmvc
@@ -347,7 +347,7 @@ SpringMVC是用来简化基于MVC架构的web应用程序的开发,是Spring框�
     * 在拦截器接口方法中实现拦截处理逻辑
     * 配置拦截器
     * 如果多个拦截器都满足要求, 则依据配置的先后顺序执行
- <img src= "/assets/files/Interceptor.png" alt="加载错误" title="拦截器"/>
+ <img src= "/assets/files/Interceptor.jpg" alt="加载错误" title="拦截器"/>
 
 #### 异常处理
 1. 配置简单异常处理器, 只适合对异常进行简单处理

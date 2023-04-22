@@ -17,7 +17,7 @@
                     + $(this).text()
                     + "</a></dt>");
 
-            var children = $(this).nextUntil("h2", "h3", "h4", "h5")
+            var children = $(this).nextUntil("h2", "h3")
 
             children.each(function( index ) {
                 $(".post-directory dl").append("<dd><a class=\"jumper\" hre=#" +

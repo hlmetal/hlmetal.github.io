@@ -24,7 +24,7 @@ apache iBatis -> google MyBatis -> Github
 7. 调用MyBatis的api来访问数据库
 
 ## 原理
-<img src= "/assets/files/mybatis_principle.png" alt="加载错误" title="MyBatis原理" />
+<img src= "/assets/files/mybatis_principle.jpg" alt="加载错误" title="MyBatis原理" />
 
 ## Mapper映射器
 1. Mapper映射器是一个符合映射文件要求的接口,MyBatis会生成一个符合该接口要求的对象

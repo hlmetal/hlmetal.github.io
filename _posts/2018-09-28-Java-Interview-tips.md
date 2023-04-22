@@ -22,7 +22,7 @@ java基础知识盘点
 如果定义两个Integer对象, 并且这两个Integer的取值范围正好在-128到127之间, 直接用==号来判断可以, 因为两个对象指向的地址是同一个. 但数据超过IntegerCache的取值范围, 就不行
 
 ### AtomicInteger的底层实现原理
-  <img src= "/assets/files/to_be_supplemented.png" alt="加载错误" title="有待补充"/>
+  <img src= "/assets/files/to_be_supplemented.jpg" alt="加载错误" title="有待补充"/>
 
 ### 判断奇偶数
 1. 对2取余(%2)
@@ -308,7 +308,9 @@ wait和notify用来实现多线程之间的协调. wait表示让线程进入到�
 *  举例: 运动会跑步比赛, 裁判只有等待多名运动员到齐(多个子线程)才能发令(主线程)
 2. CyclicBarrier: 多个线程互相等待,直到到达同一个同步点,再继续一起执行
 * 举例: 舞蹈队排练, 人员需要相互等待都到齐了, 才能开始
-3. <img src= "/assets/files/CoutdownLatch与CyclicBarrier.png" alt="加载错误" title="CoutdownLatch与CyclicBarrier"/>
+
+ <img src= "/assets/files/CoutdownLatch与CyclicBarrier.jpg" alt="加载错误" title="CoutdownLatch与CyclicBarrier"/>
+
 * CountDownLatch的计数器只能使用一次, 而CyclicBarrier的计数器可以使用reset()方法重置
 * CyclicBarrier能处理更为复杂的业务场景,比如计算发生错误,可以结束阻塞,重置计数器,重新执行程序
 * CyclicBarrier提供getNumberWaiting()方法,可以获得CyclicBarrier阻塞的线程数量,还提供isBroken()方法, 可以判断阻塞的线程是否被中断
@@ -325,6 +327,7 @@ wait和notify用来实现多线程之间的协调. wait表示让线程进入到�
 ThreadLocal是一种线程隔离机制,它提供了多线程环境下对于共享变量访问的安全性.
 * 一般在多线程访问共享变量的场景中, 是对共享变量加锁, 从而保证在同一时刻只有一个线程能够对共享变量进行更新, 并且基于Happens-Before规则里面的监视器锁规则, 又保证了数据修改后对其他线程的可见性. 
 * ThreadLocal用了一种空间换时间的设计思想, 每个线程里面都有一个容器来存储共享变量的副本,然后每个线程只对自己的变量副本来操作,这样既解决了线程安全问题,又避免了多线程竞争加锁的开销
+
 ```java
 public class Thread implements Runnable {
 ThreadLocal.ThreadLocalMap threadLocals = null;
@@ -332,11 +335,13 @@ ThreadLocal.ThreadLocalMap threadLocals = null;
 
 static ThreadLocal<String> localVariable = new ThreadLocal<>();
 ```
+
 1. Thread类有一个类型为ThreadLocal.ThreadLocalMap类的实例变量threadLocals,即每个线程都有一个属于自己的ThreadLocalMap
 2. ThreadLocalMap内部维护着Entry数组, 每个Entry代表一个完整的对象, 其中key是ThreadLocal本身,value 是ThreadLocal的泛型值
 3. 每个线程在往ThreadLocal里设置值的时候, 都是往自己的ThreadLocalMap里存, 读也是以某个ThreadLocal 作为引用,在自己的map里找对应的key,从而实现了线程隔离
 
 ### ThreadLocal内存泄漏问题
+
 ```java
 static class ThreadLocalMap {
   static class Entry extends WeakReference<ThreadLocal<?>> {
@@ -348,6 +353,7 @@ static class ThreadLocalMap {
   }
 }
 ```
+
 1. 原因: ThreadLocalMap中使用的key是ThreadLocal的弱引用, 弱引用比较容易被回收. 如果没有强引用指向key, 就会被回收, 导致Entry的key为null, value没有外部强引用指向它应该也被回收, 但是ThreadLocalMap与Thread生命周期一致, 而Entry又属于ThreadLocalMap, 从而导致Entry中的key没了, value还在, Entry对象不能被回收, 这就会造成了内存泄漏问题
 2. 解决办法
 * 使用完ThreadLocal后及时调用remove()方法释放内存空间
@@ -586,7 +592,6 @@ ClassLoader负责加载类的字节码到JVM中, Class.formName内部调用了Cl
 </head>
 <body>
 <table class="table table-bordered table-striped">
-	<caption>IO多路复用</caption>
 	<thead>
 		<tr>
       <th>对比项</th>
@@ -628,6 +633,7 @@ ClassLoader负责加载类的字节码到JVM中, Class.formName内部调用了Cl
 		</tr>
 	</tbody>
 </table>
+
 
 ### 信号驱动
 信号驱动IO不再以主动询问的去确认数据是否就绪, 而是向内核发送一个信号, 然后应用进程可以去做别的事, 不用阻塞. 当内核数据准备好后, 再通过信号通知应用进程, 应用进程收到信号之后立即调用recvfrom去读取数据
@@ -724,6 +730,7 @@ Java的所有类都继承自Object, 而Object又有clone()方法, 深clone导致
 2. 要经常被赋值传递的对象, Vo、Pojo等就不适合设置为单例
 
 #### 双检锁
+
 ```java
 if (null == instance) {
   synchronized(LazyDoubleCheckLockSingleton.class) {
@@ -733,6 +740,7 @@ if (null == instance) {
   }
 }
 ```
+
 上述代码中加锁以保证线程安全, 检查以保证只有1个实例
 1. 为什么需要双重检查
 * 假设去掉外层检查, 在线程1创建好对象后, 其他线程每次都会阻塞. 加上后只有第一次出现并发时会阻塞, 提高性能

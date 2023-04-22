@@ -86,11 +86,12 @@ public static int climbStairs1(int n) {
 * 例如: 1, 11(1个1), 21(2个1), 1211(1个2,1个1), 111221(1个1, 1个2, 2个1)
 
 ### 解法
-1. Sliding Window(滑动窗口)
+Sliding Window(滑动窗口)
 * 在函数中，我们使用两个上下文变量扫描序列：
 * prevDigit 和 digitCnt 分别指的是我们期望在子序列中出现的数字和该数字在子序列中出现的次数。
 * 在每个子序列的末尾，我们将摘要附加到结果中，然后为下一个子序列重置上述两个上下文变量。
 * 在序列中使用了一个人为的分隔符，以方便迭代
+
 ```java
 public static String countAndSay1(int n) {
     LinkedList<Integer> prevSeq = new LinkedList<>();
@@ -138,8 +139,10 @@ private static LinkedList<Integer> nextSequence(int n, LinkedList<Integer> prevS
     return nextSequence(n - 1, nextSeq);
 }
 ```
-2. iteration(迭代)
+
+iteration(迭代)
 * S1=1, S2=11,... Sn.
+
 ```java
 public static String countAndSay2(int n) {
     StringBuilder result = new StringBuilder("1");
@@ -162,7 +165,9 @@ public static String countAndSay2(int n) {
 
 }
 ```
-3. Regular Expression(正则)
+
+Regular Expression(正则)
+
 ```java
 public static String countAndSay3(int n) {
     String currentSeq = "1";
@@ -185,7 +190,9 @@ public static String countAndSay3(int n) {
     return currentSeq;
 }
 ```
-4. recursion(递归)
+
+recursion(递归)
+
 ```java
 public static String countAndSay4(int n) {
     if (n == 1) return "1";
@@ -323,6 +330,7 @@ public static String longestCommonPrefix3(String[] strs) {
 }
 ```
 3. recursive(递归)
+
 ```java
 public static String longestCommonPrefix4(String[] strs) {
     if (strs == null || strs.length == 0) {
@@ -353,11 +361,12 @@ private static String commonPrefix(String left, String right) {
 }
 ```
 
+
 ## 7. Maximum Subarray(最大子数组和)
 ### 题目描述
 给定一个整数数组nums,找出一个具有最大和的连续子数组（子数组最少包含一个元素）,返回其最大和
 ### 解法
-1. 分而治之
+分而治之
 ```java
 public static int maxSubArray1(int[] nums) {
     return helper(nums, 0, nums.length - 1);
@@ -390,7 +399,7 @@ private static int crossSub (int[] nums, int left, int right, int mid) {
     return leftSubSum + rightSubSum;
 }
 ```
-2. Greedy-贪婪算法
+Greedy-贪婪算法
 ```java
 public static int maxSubArray2(int[] nums) {
     int n = nums.length;
@@ -402,7 +411,8 @@ public static int maxSubArray2(int[] nums) {
     return maxSum;
 }
 ```
-3. Dynamic Programming-(Kadane算法)
+Dynamic Programming-(Kadane算法)
+
 ```java
 public static int maxSubArray3(int[] nums) {
     int n = nums.length, maxSum = nums[0];
@@ -518,7 +528,8 @@ public static int[] plusOne(int[] nums) {
 ### 题目描述
 给定一个已排序的的头he链表ad ， 删除所有重复的元素，使每个元素只出现一次.返回已排序的链表
 ### 解法
-1. 一次遍历
+一次遍历
+
 ```java
 class ListNode {
     int val;
@@ -540,7 +551,8 @@ public class RemoveDuplicatesFromSortedList {
     }
 }
 ```
-2. 递归
+
+递归
 ```java
 public ListNode deleteDuplicates2(ListNode head) {
     if(head == null || head.next == null)return head;
@@ -548,6 +560,7 @@ public ListNode deleteDuplicates2(ListNode head) {
     return head.val == head.next.val ? head.next : head;
 }
 ```
+
 
 ## 11. Remove Duplicates from Sorted Array(删除有序数组中的重复项)
 ### 题目描述
@@ -650,7 +663,7 @@ public static int reverse2(int x) {
 * C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900
 
 ### 解法
-1. 暴力解法
+暴力解法
 ```java
 public static int romanToInt1(String x) {
     String number = "";
@@ -714,7 +727,8 @@ public static int romanToInt1(String x) {
     return result;
 }
 ```
-2. 逐字计算
+逐字计算
+
 ```java
 static Map<String, Integer> values = new HashMap<>();
 static {
@@ -752,7 +766,9 @@ public static int romanToInt2(String x) {
     return sum;
 }
 ```
-3. 两两一组计算
+
+两两一组计算
+
 ```java
 static Map<String, Integer> map = new HashMap<>();
 static {
@@ -789,7 +805,9 @@ public static int romanToInt3(String x) {
     return sum;
 }
 ```
-4. 特殊规则与正常计算之间分别差2, 20, 200
+
+特殊规则与正常计算之间分别差2, 20, 200
+
 ```java
 public static int romanToInt5(String x) {
     int sum = 0;
@@ -945,7 +963,8 @@ public static int[] twoSum3(int[] nums, int target) {
 * 每个右括号都有一个对应的相同类型的左括号。
 
 ### 解法
-1. 栈
+栈
+
 ```java
 static HashMap<Character, Character> map = new HashMap<>();
 static {
@@ -976,5 +995,6 @@ public static boolean validParentheses2(String str) {
     return stack.isEmpty();
 }
 ```
+
 
 ## to be continued

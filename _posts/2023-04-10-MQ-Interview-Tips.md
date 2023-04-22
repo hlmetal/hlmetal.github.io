@@ -33,10 +33,10 @@ MQ是一种应用间的通信方式, 包括producer、broker、consumer三部分
 ### 远程调用
 
 ## 常见消息队列中间件
-### ActiveMQ
-### RabbitMQ
-### Kafka
-### RocketMQ
+1. ActiveMQ
+2. RabbitMQ
+3. Kafka
+4. RocketMQ
 
 ## RabbitMQ
 基于AMQP协议实现的分布式消息中间件. 生产者把消息发送到RabbitMQ Broker上的Exchange交换机上. Exchange交换机把收到的消息根据路由规则发给绑定的队列, 最后再把消息投递给订阅了这个队列的消费者, 从而完成消息的异步通讯. 
@@ -98,8 +98,6 @@ MQ是一种应用间的通信方式, 包括producer、broker、consumer三部分
 
 ### Consumer保证不丢失
 消费成功, 给Broker发送成功反馈
-
-## MQ如何保证消息顺序性
 
 ## MQ如何保证幂等,避免重复消费
 ### 什么是幂等
@@ -186,6 +184,8 @@ MQ是一种应用间的通信方式, 包括producer、broker、consumer三部分
 		</tr>
 	</tbody>
 </table>
+
+</br>
 
 ## Kafka
 kafka的基础集群架构由多个broker节点组成, 创建一个topic时, 划分为多个partition, 每个partition存放一部分数据, 分别存在于不同的broker上. 并且提供了复制品副本机, 即每个partition都会同步到多台机器上, 形成多个副本. 然后所有副本选出一个leader, 这个leader跟producer和consumer交互, 其他副本都follower. 写数据时, leader负责把数据同步给所有follower, 读数据时, 直接读leader数据. 当某个broker宕机, 这个broker上的partition在其他机器上都有副本.

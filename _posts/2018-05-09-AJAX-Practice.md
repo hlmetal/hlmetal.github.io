@@ -12,7 +12,7 @@ ajax(asynchronous javascript and xml)是一种用来改善用户体验的技术
 ajax本质是利用浏览器提供的一个特殊对象(XMLHttpRequest)向服务器发送异步请求，服务器返回部分数据，浏览器利用这些数据对当前页面做局部更新。整个过程页面不刷新，不打断用户的操作，ajax对象发送请求时，浏览器不会销毁当前页面，用户可以对当前页面做其他操作。
 ## ajax使用
 ### 获取ajax对象
- <img src= "/assets/files/ajax.png" alt="加载错误" title="ajax"/>
+ <img src= "/assets/files/ajax.jpg" alt="加载错误" title="ajax"/>
  
 ```js
 function getAjax(){

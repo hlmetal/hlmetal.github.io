@@ -23,7 +23,7 @@ categories: java
 在运行期间才确定执行次序，包括运行期间决定创建哪个对象，运行期间决定调用哪个方法。
 * 动态加载类
 在运行期间动态确定加载那个类，只加载一次Class cls=class.froName()
-<img src= "/assets/files/dynamic_class_loading.png" alt="加载错误" title="动态加载类"/>
+<img src= "/assets/files/dynamic_class_loading.jpg" alt="加载错误" title="动态加载类"/>
 
 * 动态创建对象
 `Object obj=cls.newInstance();`

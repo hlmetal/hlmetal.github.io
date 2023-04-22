@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "java基础"
-date:   2018-02-29 08:20:30 +0200
+date:   2018-03-01 08:20:30 +0200
 categories: java
 ---
 
@@ -244,7 +244,7 @@ i* mport：同一包中类可直接访问；不同包不能直接访问；有两
 
 ## JAVA Stream
 ### 什么是Stream
-Stream是对集合(Collection)对象功能的增强，它专注于对集合对象进行各种非常便利、高效的聚合操作(aggregate operation),或者大批量数据操作(bulk data operation)。Stream API借助于同样新出现的Lambda表达式，极大的提高编程效率和程序可读性。同时它提供串行和并行两种模式进行汇聚操作，并发模式能够充分利用多核处理器的优势，使用 fork/join 并行方式来拆分任务和加速处理过程。通常编写并行代码很难而且容易出错, 但使用 Stream API无需编写一行多线程的代码，就可以很方便地写出高性能的并发程序。
+Stream是对集合(Collection)对象功能的增强，它专注于对集合对象进行各种非常便利、高效的聚合操作(aggregate operation),或者大批量数据操作(bulk data operation)。Stream API借助于同样新出现的Lambda表达式，极大的提高编程效率和程序可读性。同时它提供串行和并行两种模式进行汇聚操作，并发模式能够充分利用多核处理器的优势，使用 fork/join 并行方式来拆分任务和加速处理过程。通常编写并行代码很难而且容易出错, 但使用 Stream API无需编写一行多线程的代码，就可以很方便地写出高性能的并发程序
 ### Stream与Iterator
 Stream不是集合元素，它不是数据结构并不保存数据，它是有关算法和计算的，它更像一个高级版本的 Iterator。
 * 原始版本的 Iterator，用户只能显式地一个一个遍历元素并对其执行某些操作；
@@ -252,6 +252,7 @@ Stream不是集合元素，它不是数据结构并不保存数据，它是有�
 * Stream 可以并行化操作，迭代器只能命令式地、串行化操作。
     * 当使用串行方式去遍历时，每个 item 读完后再读下一个 item。
     * 而使用并行去遍历时，数据会被分成多个段，其中每一个都在不同的线程中处理，然后将结果一起输出。
+    
 ### Stream特性
 1. 不是数据结构, 没有内部存储, 它只是用操作管道从source（数据结构、数组、generator function、IO channel）抓取数据。
 2. 它也绝不修改自己所封装的底层数据结构的数据。例如Stream的filter操作会产生一个不包含被过滤元素的新Stream，而不是从source删除那些元素。
@@ -360,7 +361,7 @@ StringBuilder是为了解决频繁修改字符串对系统资源开销问题。
 
 ### Thread API
 #### 线程状态
-<img src= "/assets/files/thread_status.png" alt="加载错误" title="线程状态"/>
+<img src= "/assets/files/thread_status.jpg" alt="加载错误" title="线程状态"/>
 
 #### 线程操作
 1. Thread.currentThread方法：用于获取运行当前代码片段的线程，返回一个线程实例
