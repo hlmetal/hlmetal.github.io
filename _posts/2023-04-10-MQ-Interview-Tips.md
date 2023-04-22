@@ -116,13 +116,7 @@ MQ是一种应用间的通信方式, 包括producer、broker、consumer三部分
 
 
 ## MQ技术选型
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>MQ技术选型</caption>
 	<thead>
@@ -184,8 +178,6 @@ MQ是一种应用间的通信方式, 包括producer、broker、consumer三部分
 		</tr>
 	</tbody>
 </table>
-
-</br>
 
 ## Kafka
 kafka的基础集群架构由多个broker节点组成, 创建一个topic时, 划分为多个partition, 每个partition存放一部分数据, 分别存在于不同的broker上. 并且提供了复制品副本机, 即每个partition都会同步到多台机器上, 形成多个副本. 然后所有副本选出一个leader, 这个leader跟producer和consumer交互, 其他副本都follower. 写数据时, leader负责把数据同步给所有follower, 读数据时, 直接读leader数据. 当某个broker宕机, 这个broker上的partition在其他机器上都有副本.

@@ -584,13 +584,6 @@ ClassLoader负责加载类的字节码到JVM中, Class.formName内部调用了Cl
   <img src= "/assets/files/IO多路复用epoll.jpg" alt="加载错误" title="IO多路复用epoll"/>
 
 #### 三者区别
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
 <table class="table table-bordered table-striped">
 	<thead>
 		<tr>
@@ -633,7 +626,6 @@ ClassLoader负责加载类的字节码到JVM中, Class.formName内部调用了Cl
 		</tr>
 	</tbody>
 </table>
-
 
 ### 信号驱动
 信号驱动IO不再以主动询问的去确认数据是否就绪, 而是向内核发送一个信号, 然后应用进程可以去做别的事, 不用阻塞. 当内核数据准备好后, 再通过信号通知应用进程, 应用进程收到信号之后立即调用recvfrom去读取数据

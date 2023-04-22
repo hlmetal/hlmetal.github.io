@@ -13,13 +13,6 @@ STOCK项目梳理, 主要针对现有功能、库表等进行梳理
 ### stock库
 ### 主要表结构
 1. 老师时间库存
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
 <table class="table table-bordered table-striped">
 	<caption>stock</caption>
 	<thead>
@@ -79,13 +72,7 @@ STOCK项目梳理, 主要针对现有功能、库表等进行梳理
 </table>
 
 2. 订单库存关系
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>order_stock_relation</caption>
 	<thead>
@@ -125,13 +112,7 @@ STOCK项目梳理, 主要针对现有功能、库表等进行梳理
 </table>
 
 3. 库存定向表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>stock_target</caption>
 	<thead>
@@ -181,13 +162,7 @@ STOCK项目梳理, 主要针对现有功能、库表等进行梳理
 </table>
 
 4. 订单库存占用表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>order_occupation</caption>
 	<thead>
@@ -227,13 +202,7 @@ STOCK项目梳理, 主要针对现有功能、库表等进行梳理
 </table>
 
 5. 库存属性表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>stock_prop</caption>
 	<thead>
@@ -273,13 +242,7 @@ STOCK项目梳理, 主要针对现有功能、库表等进行梳理
 </table>
 
 6. 库存快照表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>stock_snapshot</caption>
 	<thead>
@@ -324,13 +287,7 @@ STOCK项目梳理, 主要针对现有功能、库表等进行梳理
 </table>
 
 7. 库存最新快照
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>stock_current_snapshot</caption>
 	<thead>
@@ -360,13 +317,7 @@ STOCK项目梳理, 主要针对现有功能、库表等进行梳理
 </table>
 
 8. 事务回滚
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>rollback_action</caption>
 	<thead>
@@ -410,7 +361,6 @@ STOCK项目梳理, 主要针对现有功能、库表等进行梳理
 	</tbody>
 </table>
 
-</br>
 
 ### 核心功能
 1. 创建库存

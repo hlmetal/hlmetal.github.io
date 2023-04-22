@@ -305,13 +305,7 @@ public class PossibleReordering {
 
 ### 内存屏障
 一种CPU指令, 用于控制特定条件下的重排序和内存可见性问题. Java编译器在生成指令序列的适当位置会插入内存屏障指令来禁止特定类型的处理器重排序
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<thead>
 		<tr>
@@ -344,7 +338,6 @@ public class PossibleReordering {
 	</tbody>
 </table>
 
-</br>
 
 ### Happens-before
 在多线程环境下, 因指令重排序的存在会导致数据的可见性问题即线程1修改某个共享变量对线程2不可见. happen-before提供**跨越线程的内存可见性保证**. 并不表示指令执行的先后顺序, 也就是说只要不对结果产生影响,仍然允许指令的重排序

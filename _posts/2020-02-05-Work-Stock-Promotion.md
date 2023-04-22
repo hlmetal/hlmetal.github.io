@@ -13,13 +13,7 @@ stock-promotion项目简单梳理
 ### stock_promotion库
 ### 主要表结构
 1. 库存营销表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>promotion</caption>
 	<thead>
@@ -111,13 +105,7 @@ stock-promotion项目简单梳理
 * 解析: isEnabled = (flag >> (value - 1) & 1) == 1L; (即上述计算反向操作)
 
 2. 库存属性表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 
 <table class="table table-bordered table-striped">
 	<caption>stock_property</caption>
@@ -158,13 +146,7 @@ stock-promotion项目简单梳理
 </table>
 
 3. 营销奖励表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 
 <table class="table table-bordered table-striped">
 	<caption>promotion_reward</caption>
@@ -200,13 +182,7 @@ stock-promotion项目简单梳理
 </table>
 
 4. 订单营销占用表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>order_occupation</caption>
 	<thead>
@@ -241,13 +217,7 @@ stock-promotion项目简单梳理
 </table>
 
 5. 营销订单奖励生成记录表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>order_promotion_reward</caption>
 	<thead>
@@ -322,13 +292,7 @@ stock-promotion项目简单梳理
 </table>
 
 6. 活动名单基本信息表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>activity_user_group</caption>
 	<thead>
@@ -368,13 +332,7 @@ stock-promotion项目简单梳理
 </table>
 
 7. 活动名单成员信息表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>activity_user_group_member</caption>
 	<thead>
@@ -414,13 +372,7 @@ stock-promotion项目简单梳理
 </table>
 
 8. 用户人群表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>user_group</caption>
 	<thead>
@@ -480,13 +432,7 @@ stock-promotion项目简单梳理
 </table>
 
 9. 用户人群成员表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>user_group_member</caption>
 	<thead>
@@ -526,13 +472,7 @@ stock-promotion项目简单梳理
 </table>
 
 10. 用户人群标签表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>user_group_tag</caption>
 	<thead>
@@ -572,13 +512,7 @@ stock-promotion项目简单梳理
 </table>
 
 11. 用户标签元数据表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>user_tag_meta</caption>
 	<thead>
@@ -623,13 +557,7 @@ stock-promotion项目简单梳理
 </table>
 
 12. 老师标签信息表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>teacher_tag</caption>
 	<thead>
@@ -669,13 +597,7 @@ stock-promotion项目简单梳理
 </table>
 
 13. 老师原生数据表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>raw_teacher</caption>
 	<thead>
@@ -745,13 +667,7 @@ stock-promotion项目简单梳理
 </table>
 
 14. 分类老师
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>in_classify_teacher</caption>
 	<thead>
@@ -786,13 +702,7 @@ stock-promotion项目简单梳理
 </table>
 
 15. 老师能量石活动表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>taecher_activity</caption>
 	<thead>
@@ -932,13 +842,7 @@ stock-promotion项目简单梳理
 </table>
 
 16. 子活动信息表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>teacher_activity_session</caption>
 	<thead>
@@ -1078,13 +982,7 @@ stock-promotion项目简单梳理
 </table>
 
 17. 营销额度表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>promotion_limit</caption>
 	<thead>
@@ -1119,13 +1017,7 @@ stock-promotion项目简单梳理
 </table>
 
 18. 营销满额老师表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>promotion_limited_teacher</caption>
 	<thead>
@@ -1175,13 +1067,7 @@ stock-promotion项目简单梳理
 </table>
 
 19. 奖励结算规则表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>promotion_reward_settlement</caption>
 	<thead>
@@ -1221,13 +1107,7 @@ stock-promotion项目简单梳理
 </table>
 
 20. 奖励结算记录表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>order_promotion_reward_settlement</caption>
 	<thead>
@@ -1287,13 +1167,7 @@ stock-promotion项目简单梳理
 </table>
 
 21. 活动报名表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>teacher_activity_enrollment</caption>
 	<thead>
@@ -1333,13 +1207,7 @@ stock-promotion项目简单梳理
 </table>
 
 22. 用户id上传记录表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>upload_record</caption>
 	<thead>
@@ -1374,13 +1242,7 @@ stock-promotion项目简单梳理
 </table>
 
 23. 券活动规则表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>coupon_rule</caption>
 	<thead>
@@ -1500,13 +1362,7 @@ stock-promotion项目简单梳理
 </table>
 
 24. 券规则属性
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>coupon_rule_property</caption>
 	<thead>
@@ -1551,13 +1407,7 @@ stock-promotion项目简单梳理
 </table>
 
 25. 券活动奖励
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>coupon_rule_reward</caption>
 	<thead>
@@ -1597,13 +1447,7 @@ stock-promotion项目简单梳理
 </table>
 
 26. 营销交易表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>coupon_rule_reward</caption>
 	<thead>
@@ -1653,13 +1497,7 @@ stock-promotion项目简单梳理
 </table>
 
 27. 营销交易属性表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>deal_property</caption>
 	<thead>
@@ -1699,13 +1537,7 @@ stock-promotion项目简单梳理
 </table>
 
 28. 营销交易资源表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>deal_resource</caption>
 	<thead>
@@ -1750,13 +1582,7 @@ stock-promotion项目简单梳理
 </table>
 
 29. 券活动规则设置表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>coupon_rule_setting</caption>
 	<thead>
@@ -1801,13 +1627,7 @@ stock-promotion项目简单梳理
 </table>
 
 30. 广告位表
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>ad_slot</caption>
 	<thead>
@@ -1868,7 +1688,6 @@ stock-promotion项目简单梳理
 
 31. 其他表, 包括操作日志表、上传文件表、上传文件数据表等
 
-</br>
 
 ## 核心功能
 ### 老师能量石活动

@@ -328,6 +328,7 @@ Http协议本身是一个无状态协议. 基于服务端的session存储机制,
 		</tr>
 	</tbody>
 </table>
+</body>
 
 
 ## HTTP请求流程(从浏览器输入url到显示页面的过程)
@@ -367,13 +368,7 @@ Http协议本身是一个无状态协议. 基于服务端的session存储机制,
 ## HTTP与HTTPS区别
 * HTTP的请求信息是明文传输, 容易被窃取,且没有验证身份和数据完整性
 * HTTPS是为了解决上述问题而生, HTTPS = HTTP + SSL/TLS
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>HTTP与HTTPS</caption>
 	<thead>
@@ -412,7 +407,6 @@ Http协议本身是一个无状态协议. 基于服务端的session存储机制,
 	</tbody>
 </table>
 
-</br>
 
 ## HTTPS流程
   <img src= "/assets/files/HTTPS原理.jpg" alt="加载错误" title="HTTPS原理"/>

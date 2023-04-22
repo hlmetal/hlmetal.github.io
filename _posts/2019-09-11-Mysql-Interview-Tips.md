@@ -271,13 +271,7 @@ Innodb支持外键, MyISAM不支持
 
 ### read view可见性规则
 #### 变量
-<head>
-	<meta charset="utf-8"> 
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
 <table class="table table-bordered table-striped">
 	<caption>Read View</caption>
 	<thead>
@@ -305,8 +299,6 @@ Innodb支持外键, MyISAM不支持
 		</tr>
 	</tbody>
 </table>
-
-</br>
 
 #### 规则
 1. 如果事务ID trx_id < min_limit_id, 表明生成该版本的事务在生成Read View前, 已经提交, 所以该版本可以被当前事务访问
